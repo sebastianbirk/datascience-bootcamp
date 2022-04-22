@@ -1,0 +1,10 @@
+name: datascience-bootcamp
+channels:
+- conda-forge
+- pytorch
+dependencies:
+- pip=21.2.4
+- python=3.9.7
+- pytorch::pytorch=1.7.0
+- pip:
+    - x
