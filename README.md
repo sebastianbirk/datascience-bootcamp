@@ -21,7 +21,7 @@ Configure "Ubuntu" as your Startup Default profile as described in https://docs.
 
 ### 3. Git
 
-Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and ollaboration easier, allowing changes by multiple people to be merged into a common repository.
+Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and makes collaboration easier, allowing changes by multiple people to be merged into a common repository.
 
 #### 3.1 Install Git in WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
