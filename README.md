@@ -17,7 +17,7 @@ WSL enables us to use Linux tools on our Windows machines in a completely integr
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
 
 #### 2.2 Set up Windows Terminal
-Configure "Ubuntu" as your Startup Default profile as described in (https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile)
+Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
 
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
