@@ -2,7 +2,7 @@
 
 ## Setup
 
-### 1. Install Windows Subsystem for Linux
+### 1. Install Windows Subsystem for Linux (WSL)
 https://docs.microsoft.com/en-us/windows/wsl/install
 
 ### 1. Clone this repository
