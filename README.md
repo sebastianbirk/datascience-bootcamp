@@ -16,6 +16,9 @@ WSL enables us to use Linux tools on our Windows machines in a completely integr
 #### 2.1 Install Windows Terminal from the Microsoft Store
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
 
+#### 2.2 Set up Windows Terminal
+Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-application-preview.
+
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
