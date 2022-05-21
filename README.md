@@ -5,15 +5,15 @@
 ### 1. Windows Subsystem for Linux (WSL)
 WSL enables us to use Linux tools on our Windows machines in a completely integrated manner with no need to dual-boot.
 
-### 1.1 Install WSL
+#### 1.1 Install WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
 
-### 1.2 Set up a WSL development environment
+#### 1.2 Set up a WSL development environment
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
 ### 2. Windows Terminal
 
-#### 2.1 Install Windows Terminal
+#### 2.1 Install Windows Terminal from the Microsoft Store
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
 
 ### 1. Clone this repository
