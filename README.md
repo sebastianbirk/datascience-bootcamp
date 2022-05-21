@@ -24,6 +24,9 @@ Configure "Ubuntu" as your Startup Default profile as described in https://docs.
 #### 3.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
+In the WSL Ubuntu profile run:
+```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+
 ### 4. Git
 
 #### 4.1 Install Git in WSL
