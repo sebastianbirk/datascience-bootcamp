@@ -11,6 +11,11 @@ WSL enables us to use Linux tools on our Windows machines in a completely integr
 ### 1.2 Set up a WSL development environment
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
+### 2. Windows Terminal
+
+#### 2.1 Install Windows Terminal
+**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
+
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
