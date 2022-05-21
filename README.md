@@ -21,6 +21,9 @@ Configure "Ubuntu" as your Startup Default profile as described in https://docs.
 
 ### 3. Git
 
+#### 3.1 Install Git in WSL
+**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+
 ### 4. Miniconda
 
 #### 4.1 Install Miniconda with Python 3.9 in WSL
@@ -36,9 +39,6 @@ Afterwards, you can remove the installation script:
 ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
 #### 4.2 Create the Miniconda Environment
-
-#### 4.1 Install Git in WSL
-**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
 
 ### 5. Visual Studio Code (VSCode)
 #### 5.1 Install VSCode
