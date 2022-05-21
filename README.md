@@ -1,4 +1,9 @@
-# avanade-template
+# Data Science Bootcamp
+
+## Setup
+
+### 1. Clone this repository
+```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
 
 ```
