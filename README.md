@@ -2,10 +2,14 @@
 
 ## Setup
 
-### 1. Install Windows Subsystem for Linux (WSL)
+### 1. Windows Subsystem for Linux (WSL)
 WSL enables us to use Linux tools on our Windows machines in a completely integrated manner with no need to dual-boot.
 
-**Documentation & Installation Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
+### 1.1 Install WSL
+**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
+
+### 1.2 Set up a WSL development environment
+**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
