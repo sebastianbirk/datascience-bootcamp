@@ -2,6 +2,9 @@
 
 ## Setup
 
+### 1. Install Windows Subsystem for Linux
+https://docs.microsoft.com/en-us/windows/wsl/install![image](https://user-images.githubusercontent.com/34235961/169639723-af2354ec-5756-4524-bd00-d01fc41ec5ef.png)
+
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
