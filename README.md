@@ -19,6 +19,21 @@ WSL enables us to use Linux tools on our Windows machines in a completely integr
 #### 2.2 Set up Windows Terminal
 Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
 
+### 3. Miniconda
+
+#### 3.1 Install Miniconda with Python 3.9 in WSL
+**Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
+
+### 4. Git
+
+#### 4.1 Install Git in WSL
+**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+
+### 5. Visual Studio Code (VSCode)
+#### 5.1 Install VSCode
+
+#### 5.2 Install VSCode Remote Development Extension
+
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
