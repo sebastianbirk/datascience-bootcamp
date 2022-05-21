@@ -24,8 +24,14 @@ Configure "Ubuntu" as your Startup Default profile as described in https://docs.
 #### 3.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
-In the WSL Ubuntu profile run:
+In the WSL Ubuntu profile run the following to download the installation script:
 ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+
+Then, run the script to install Miniconda:
+```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+
+Afterwards, you can remove the installation script:
+```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
 ### 4. Git
 
