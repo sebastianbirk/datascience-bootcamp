@@ -19,9 +19,11 @@ WSL enables us to use Linux tools on our Windows machines in a completely integr
 #### 2.2 Set up Windows Terminal
 Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
 
-### 3. Miniconda
+### 3. Git
 
-#### 3.1 Install Miniconda with Python 3.9 in WSL
+### 4. Miniconda
+
+#### 4.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
 In the WSL Ubuntu profile run the following to download the installation script:
@@ -33,7 +35,7 @@ Then, run the script to install Miniconda:
 Afterwards, you can remove the installation script:
 ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
-### 4. Git
+#### 4.2 Create the Miniconda Environment
 
 #### 4.1 Install Git in WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
