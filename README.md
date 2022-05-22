@@ -3,7 +3,8 @@
 ## Setup
 
 ### 1. Windows Subsystem for Linux (WSL)
-WSL enables us to use Linux tools on our Windows machines in a completely integrated manner with no need to dual-boot.
+WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
+When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
 
 #### 1.1 Install WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
