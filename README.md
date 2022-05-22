@@ -12,6 +12,11 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 #### 1.2 Set up a WSL development environment
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
+We can open the new file system with the Windows explorer by entering the home directory and starting the explorer executable:
+```cd ~```
+```explorer.exe .```
+
+
 ### 2. Windows Terminal
 
 #### 2.1 Install Windows Terminal from the Microsoft Store
@@ -24,8 +29,25 @@ Configure "Ubuntu" as your Startup Default profile as described in https://docs.
 
 Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and makes collaboration easier, allowing changes by multiple people to be merged into a common repository.
 
+#### 3.1 Register a GitHub Account
+If you don't yet have a GitHub account, sign up here:
+https://github.com/
+
 #### 3.1 Install Git in WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+
+Run the following to install the latest stable Git version:
+```sudo apt-get install git```
+
+#### 3.2 Git Config File Setup
+To set up the Git config file, run:
+```git config --global user.name "<YOUR_NAME>"```
+```git config --global user.email "<YOUR_EMAIL>"```
+
+If you need to edit the Git config, you can use the text editor nano:
+```nano ~/.gitconfig```
+When you are done, save the changes with
+CTRL + X  -> Y -> Enter
 
 ### 4. Miniconda
 
