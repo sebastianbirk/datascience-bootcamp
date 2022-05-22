@@ -70,6 +70,9 @@ Afterwards, you can remove the installation script:
 
 #### 5.2 Install VSCode Remote Development Extension
 
+Visual Studio Code comes with built-in support for Git, including a source control tab that will show your changes and handle a variety of git commands for you. Learn more about VS Code's Git support here:
+https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
+
 ### 1. Clone this repository
 ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```
 > This is an example template for Avanade OSS projects.
