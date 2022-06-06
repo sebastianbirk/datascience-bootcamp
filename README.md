@@ -1,5 +1,25 @@
 # Data Science Bootcamp
 
+## Overview
+
+The purpose of this data science bootcamp is to give people with an analytics & cloud computing background an introduction to Python-based data science with a focus on Microsoft technologies and particularly the Microsoft Azure cloud.
+
+The following content will be covered as part of this bootcamp:
+1. Bootcamp Introduction & Tools Setup
+2. Data Visualization with Python
+3. Statistics & Machine Learning Fundamentals
+4. Data Preprocessing & Feature Engineering
+5. Supervised Machine Learning
+6. Unsupervised Machine Learning
+7. Deep Learning
+8. Applied Data Science with Azure
+9. Distributed Computing & Spark with Azure Databricks
+10. MLOps in Azure
+11. Industry Use Cases & Project Lifecycle
+12. Advanced Topics Overview
+
+All of this content builds on each other but is also designed to be self-sustained so that the selectively interested reader can dive directly into specific topics.
+
 ## Setup
 
 ### 1. Windows Subsystem for Linux (WSL)
