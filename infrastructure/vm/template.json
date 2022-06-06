@@ -19,7 +19,7 @@
     "adminUsername": {
       "type": "string",
       "metadata": {
-        "description": "Username for your Virtual Machine."
+        "description": "Username of your Virtual Machine."
       }
     },
     "authenticationType": {
@@ -30,7 +30,7 @@
         "password"
       ],
       "metadata": {
-        "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+        "description": "Type of authentication to use on your Virtual Machine. SSH key is recommended."
       }
     },
     "adminPasswordOrKey": {
@@ -57,7 +57,7 @@
         "20.04-LTS"
       ],
       "metadata": {
-        "description": "Ubuntu version for your Virtual Machine. This will pick a fully patched image of this given Ubuntu version."
+        "description": "Ubuntu version of your Virtual Machine. This will pick a fully patched image of this given Ubuntu version."
       }
     },
     "location": {
@@ -76,21 +76,21 @@
     },
     "virtualNetworkName": {
       "type": "string",
-      "defaultValue": "vNet",
+      "defaultValue": "datasciencebootcamp-vnet",
       "metadata": {
         "description": "Name of the VNET"
       }
     },
     "subnetName": {
       "type": "string",
-      "defaultValue": "Subnet",
+      "defaultValue": "datasciencebootcamp-subnet",
       "metadata": {
         "description": "Name of the subnet in the virtual network"
       }
     },
     "networkSecurityGroupName": {
       "type": "string",
-      "defaultValue": "SecGroupNet",
+      "defaultValue": "datasciencebootcamp-nsg",
       "metadata": {
         "description": "Name of the Network Security Group"
       }
