@@ -2,6 +2,7 @@
 
 ## Overview
 
+```
 The purpose of this data science bootcamp is to give people with an analytics & cloud computing background an introduction to Python-based data science with a focus on Microsoft technologies and particularly the Microsoft Azure cloud.
 
 The following content will be covered as part of this bootcamp:
@@ -19,17 +20,18 @@ The following content will be covered as part of this bootcamp:
 12. Advanced Topics Overview
 
 All of this content builds on each other but is also designed to be self-sustained so that the selectively interested reader can dive directly into specific topics.
+```
 
-## Setup
+## 1. Bootcamp Introduction & Tools Setup
 
-### 1. Windows Subsystem for Linux (WSL)
+### 1.1 Windows Subsystem for Linux (WSL)
 WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
 When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
 
-#### 1.1 Install WSL
+#### 1.1.1 Install WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
 
-#### 1.2 Set up a WSL development environment
+#### 1.1.2 Set up a WSL development environment
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
 We can open the new file system with the Windows explorer by entering the home directory and starting the explorer executable:
@@ -37,29 +39,29 @@ We can open the new file system with the Windows explorer by entering the home d
 ```explorer.exe .```
 
 
-### 2. Windows Terminal
+### 1.2 Windows Terminal
 
-#### 2.1 Install Windows Terminal from the Microsoft Store
+#### 1.2.1 Install Windows Terminal from the Microsoft Store
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
 
-#### 2.2 Set up Windows Terminal
+#### 1.2.2 Set up Windows Terminal
 Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
 
-### 3. Git
+### 1.3. Git
 
 Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and makes collaboration easier, allowing changes by multiple people to be merged into a common repository.
 
-#### 3.1 Register a GitHub Account
+#### 1.3.1 Register a GitHub Account
 If you don't yet have a GitHub account, sign up here:
 https://github.com/
 
-#### 3.1 Install Git in WSL
+#### 1.3.2 Install Git in WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
 
 Run the following to install the latest stable Git version:
 ```sudo apt-get install git```
 
-#### 3.2 Git Config File Setup
+#### 1.3.3 Git Config File Setup
 To set up the Git config file, run:
 ```git config --global user.name "<YOUR_NAME>"```
 ```git config --global user.email "<YOUR_EMAIL>"```
@@ -69,9 +71,9 @@ If you need to edit the Git config, you can use the text editor nano:
 When you are done, save the changes with
 CTRL + X  -> Y -> Enter
 
-### 4. Miniconda
+### 1.4 Miniconda
 
-#### 4.1 Install Miniconda with Python 3.9 in WSL
+#### 1.4.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
 In the WSL Ubuntu profile run the following to download the installation script:
@@ -83,17 +85,17 @@ Then, run the script to install Miniconda:
 Afterwards, you can remove the installation script:
 ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
-#### 4.2 Create the Miniconda Environment
+#### 1.4.2 Create the Miniconda Environment
 
-### 5. Visual Studio Code (VSCode)
-#### 5.1 Install VSCode
+### 1.5. Visual Studio Code (VSCode)
+#### 1.5.1 Install VSCode
 
-#### 5.2 Install VSCode Remote Development Extension
+#### 1.5.2 Install VSCode Remote Development Extension
 
 Visual Studio Code comes with built-in support for Git, including a source control tab that will show your changes and handle a variety of git commands for you. Learn more about VS Code's Git support here:
 https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
-### Data Science Virtual Machine (Ubuntu 20.04)
+### Virtual Machine (Ubuntu 18.04)
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsebastianbirk%2Fdatascience-bootcamp%2Fmain%2Finfrastructure%2Fvm%2Ftemplate.json)
 
@@ -126,14 +128,6 @@ DELETE THIS COMMENT
 
 ```
 Update the repo URL addresses for the shield templates.
-DELETE THIS COMMENT
-```
-
-## Overview
-Describe the project in more detail. **This project is an example project, to be used when creating new Avanade Open Source projects.**
-
-```
-Add a description of your project, and a screenshot if possible.
 DELETE THIS COMMENT
 ```
 
