@@ -79,6 +79,9 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 **Note**: If you are interested in learning more about Azure Deployment Buttons, check this out: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
 
+After your Virtual Machine is deployed, you can access it by opening the Command Prompt from your Windows machine and typing:
+ssh server-admin@<DNS_NAME> where you can find the <DNS_NAME> on the Overview page of your Virtual Machine in the Azure Portal.
+
 ```sudo apt install azure-cli```
 
 
