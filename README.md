@@ -26,7 +26,7 @@ The following content will be covered within 1 week (5 days 8 hrs each -> 40 hrs
 11. Industry Use Cases & Project Lifecycle
 12. Advanced Topics Overview
 
-All of this content is available in the [contents](./contents) directory and builds on each other, but is also designed to be self-sustained so that the selectively interested reader can dive directly into specific topics.
+All of this content is available in the [content](https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content) directory and builds on each other, but is also designed to be self-sustained so that the selectively interested reader can dive directly into specific topics.
 
 ## Licensing
 datascience-bootcamp is available under the [MIT Licence](./LICENCE).
