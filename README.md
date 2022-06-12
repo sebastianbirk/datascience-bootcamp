@@ -39,8 +39,7 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment)
 
 - Upgrade your packages using the apt package manager by running ```sudo apt update && sudo apt upgrade``` in the launched bash console.
-
-We can open the new file system with the Windows explorer by entering the home directory and starting the explorer executable:
+- We can open the new file system that comes with our Ubuntu distribution by leveraging the Windows explorer. To do this, enter the home directory and start the explorer executable from your Bash console as follows:
 ```cd ~```
 ```explorer.exe .```
 
