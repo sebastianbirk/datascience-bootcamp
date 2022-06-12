@@ -51,7 +51,7 @@ If you don't yet have a GitHub account, sign up [here](https://github.com/).
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
 
 Run the following from your bash command line interface (inside Windows Terminal) to install the latest stable Git version:
-```sudo apt-get install git```
+```sudo apt-get install git```.
 
 #### 1.2.3.3 Git Config File Setup
 To set up the Git config file, run:
