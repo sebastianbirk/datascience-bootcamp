@@ -29,9 +29,11 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 #### 1.1.1 Install WSL
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install)
 
-Open PowerShell or Windows Command Prompt in administrator mode and run
+- Open PowerShell or Windows Command Prompt in administrator mode and run
 ```wsl --install -d Ubuntu``` (this will install WSL together with an Ubuntu distribution, which is also the default; reboot may be required).
-Once you have installed WSL, open Ubuntu from the Windows start menu (if it has not opened automatically after installation). We can also pin Ubuntu to our Windows taskbar for easy accessibility in the future. You will now be prompted to create a user account and password for your newly installed Linux distribution. This account will be considered the Linux administrator, with the ability to run sudo (Super User Do) administrative commands. Next, upgrade your packages using the apt package manager by running ```sudo apt update && sudo apt upgrade```.
+- Once you have installed WSL, open Ubuntu from the Windows start menu (if it has not opened automatically after installation). We can also pin Ubuntu to our Windows taskbar for easy accessibility in the future. 
+- You will now be prompted to create a user account and password for your newly installed Linux distribution. This account will be considered the Linux administrator, with the ability to run sudo (Super User Do) administrative commands.
+- Next, upgrade your packages using the apt package manager by running ```sudo apt update && sudo apt upgrade```.
 
 
 #### 1.1.2 Set up a WSL development environment
