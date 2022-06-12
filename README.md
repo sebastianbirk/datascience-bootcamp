@@ -47,10 +47,12 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 ### 1.2 Windows Terminal
 
 #### 1.2.1 Install Windows Terminal from the Microsoft Store
-**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/terminal/install
+**Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/terminal/install](https://docs.microsoft.com/en-us/windows/terminal/install)
+
+- Install Windows Terminal from the Microsoft Store by following this link: [https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=de-de&gl=DE ].
 
 #### 1.2.2 Set up Windows Terminal
-Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
+- Configure "Ubuntu" as your Startup Default profile as described in https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile.
 
 ### 1.3. Git
 
