@@ -1,3 +1,3 @@
 # 2. Data Visualization with Python
 
-### 2.1 xxx
+## 2.1 xxx
