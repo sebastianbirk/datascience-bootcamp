@@ -4,7 +4,7 @@
 
 The purpose of this data science bootcamp is to give people with an analytics & cloud computing background an introduction to Python-based data science with a focus on Microsoft technologies and particularly the Microsoft Azure cloud.
 
-The following content will be covered as part of this bootcamp:
+The following content will be covered in this bootcamp:
 1. Bootcamp Introduction & Tools Setup
 2. Data Visualization with Python
 3. Statistics & Machine Learning Fundamentals
