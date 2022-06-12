@@ -1,5 +1,5 @@
 # Data Science Bootcamp
-> This is OSS material for the 1-week Data Science Bootcamp created by Avanade ASG (Austria Switzerland Germany).
+> This is an OSS project for a 1-week Data Science Bootcamp created by Avanade ASG (Austria Switzerland Germany).
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![GitHub issues](https://img.shields.io/github/issues/sebastianbirk/datascience-bootcamp)
