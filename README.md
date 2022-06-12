@@ -1,5 +1,5 @@
 # datascience-bootcamp
-> This is an OSS project for a 1-week Data Science Bootcamp created by Avanade ASG (Austria Switzerland Germany).
+> This is an OSS project for a 1-week data science bootcamp created by Avanade ASG (Austria Switzerland Germany).
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![GitHub issues](https://img.shields.io/github/issues/sebastianbirk/datascience-bootcamp)
@@ -10,9 +10,9 @@
 
 ## Overview
 
-The purpose of this Data Science Bootcamp is to give people with an analytics & cloud computing background an introduction to Python-based data science with a focus on Microsoft technologies and particularly the Microsoft Azure cloud.
+The purpose of this data science bootcamp is to give people with an analytics & cloud computing background an introduction to Python-based data science with a focus on Microsoft technologies and particularly the Microsoft Azure cloud.
 
-The following content will be covered within 1 week (40hrs):
+The following content will be covered within 1 week (5 days 8 hrs each -> 40 hrs):
 1. Bootcamp Introduction & Tools Setup
 2. Data Visualization with Python
 3. Statistics & Machine Learning Fundamentals
