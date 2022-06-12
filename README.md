@@ -27,10 +27,10 @@ WSL enables us to use a Linux distribution operating system with Linux tools on 
 When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
 
 #### 1.1.1 Install WSL
-**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
+**Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 Open PowerShell or Windows Command Prompt in administrator mode and run
-```wsl --install -d Ubuntu``` (this will install WSL together with an Ubuntu distribution, which is also the default).
+```wsl --install -d Ubuntu``` (this will install WSL together with an Ubuntu distribution, which is also the default; reboot may be required).
 Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
 We can also pin Ubuntu to our Windows taskbar for easy accessibility in the future.
 
