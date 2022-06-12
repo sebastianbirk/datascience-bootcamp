@@ -68,14 +68,11 @@ Miniconda is a small bootstrap version of Anaconda that includes only conda, Pyt
 #### 1.2.4.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
-In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script:
-```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script: ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
-Then, run the script to install Miniconda:
-```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
 
-Afterwards, you can remove the installation script:
-```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```
+Afterwards, you can remove the installation script: ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
 
 #### 1.2.4.2 Create the Miniconda Environment
 
