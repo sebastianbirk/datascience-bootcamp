@@ -1,5 +1,7 @@
 # 1. Bootcamp Introduction & Tools Setup
 
+## 1.1 Bootcamp Introduction
+
 ## 1.2 Tools Setup
 
 ### 1.2.1 Windows Subsystem for Linux (WSL)
