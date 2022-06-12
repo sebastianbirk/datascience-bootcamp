@@ -61,6 +61,9 @@ To set up the Git config file, run:
 If you need to edit the Git config, you can use the text editor nano as follows:
 ```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
+#### 1.2.3.4 Use Git to Clone this Repository
+From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps.
+
 ### 1.2.4 Miniconda
 
 Miniconda is a small bootstrap version of Anaconda that includes only conda, Python and the packages they depend on as well as a small number of other useful packages including pip, zlib and few others. Anaconda is the world’s most popular open-source Python distribution platform and one of its main components, conda, is an open-source package and environment management system that runs on Windows, macOS, and Linux. With conda, we can quickly install, run, and update packages and their dependencies. It allows us to easily create, save, load, and switch between environments on our local computer, thus enabling an isolated, project-specific environment management. Conda was initially created for Python programs, but it can package and distribute software for any language. 
