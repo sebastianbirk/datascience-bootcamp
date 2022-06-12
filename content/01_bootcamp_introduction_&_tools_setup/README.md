@@ -63,10 +63,12 @@ If you need to edit the Git config, you can use the text editor nano as follows:
 
 ### 1.2.4 Miniconda
 
+Miniconda is a small bootstrap version of Anaconda that includes only conda, Python and the packages they depend on as well as a small number of other useful packages including pip, zlib and few others. Anaconda is the world’s most popular open-source Python distribution platform and one of its main components, conda, is an open-source package and environment management system that runs on Windows, macOS, and Linux. With conda, we can quickly install, run, and update packages and their dependencies. It allows us to easily create, save, load, and switch between environments on our local computer, thus enabling an isolated, project-specific environment management. Conda was initially created for Python programs, but it can package and distribute software for any language. 
+
 #### 1.2.4.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 
-In the WSL Ubuntu profile run the following to download the installation script:
+In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script:
 ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
 Then, run the script to install Miniconda:
