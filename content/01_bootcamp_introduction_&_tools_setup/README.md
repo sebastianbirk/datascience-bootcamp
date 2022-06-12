@@ -2,6 +2,8 @@
 
 ## 1.1 Bootcamp Introduction
 
+The bootcamp introduction presentation is available here [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/01_bootcamp_introduction_%26_tools_setup/01_bootcamp_introduction_%26_tools_setup.pptx).
+
 ## 1.2 Tools Setup
 
 ### 1.2.1 Windows Subsystem for Linux (WSL)
