@@ -58,10 +58,8 @@ To set up the Git config file, run:
 ```git config --global user.name "<YOUR_NAME>"``` and replace <YOUR_NAME> with your Github Account user name. Then run
 ```git config --global user.email "<YOUR_EMAIL>"``` and replace <YOUR_EMAIL> with your Github Account email.
 
-If you need to edit the Git config, you can use the text editor nano:
-```nano ~/.gitconfig```
-When you are done, save the changes with
-CTRL + X  -> Y -> Enter
+If you need to edit the Git config, you can use the text editor nano as follows:
+```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
 ### 1.2.4 Miniconda
 
