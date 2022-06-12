@@ -29,6 +29,9 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 #### 1.1.1 Install WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/install
 
+Open PowerShell or Windows Command Prompt in administrator mode and run
+```wsl --install```
+
 #### 1.1.2 Set up a WSL development environment
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
 
