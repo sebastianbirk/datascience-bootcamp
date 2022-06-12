@@ -32,10 +32,10 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 Open PowerShell or Windows Command Prompt in administrator mode and run
 ```wsl --install -d Ubuntu``` (this will install WSL together with an Ubuntu distribution, which is also the default).
 Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
-We can pin Ubuntu to our Windows taskbar.
+We can also pin Ubuntu to our Windows taskbar for easy accessibility in the future.
 
 #### 1.1.2 Set up a WSL development environment
-**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
+**Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment)
 
 We can open the new file system with the Windows explorer by entering the home directory and starting the explorer executable:
 ```cd ~```
