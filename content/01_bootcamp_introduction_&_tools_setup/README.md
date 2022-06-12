@@ -62,7 +62,7 @@ If you need to edit the Git config, you can use the text editor nano as follows:
 ```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
 #### 1.2.3.4 Use Git to Clone this Repository
-From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps.
+From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps. Type ```ls``` to list all files and directories and you should now see a new folder called "datascience-bootcamp".
 
 ### 1.2.4 Miniconda
 
