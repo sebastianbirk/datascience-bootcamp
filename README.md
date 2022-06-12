@@ -46,7 +46,7 @@ The `docs` folder contains [more detailed documentation](./docs/start-here.md), 
 Feel free to [raise an issue on GitHub](https://github.com/sebastianbirk/datascience-bootcamp/issues), or see our [security disclosure](./SECURITY.md) policy.
 
 ## Contributing
-Contributions are welcome. See information on [contributing](./CONTRIBUTING.md), as well as our [code of conduct]./CODE_OF_CONDUCT.md).
+Contributions are welcome. See information on [contributing](./CONTRIBUTING.md), as well as our [code of conduct](./CODE_OF_CONDUCT.md).
 
 If you're happy to follow these guidelines, then check out the [getting started](./docs/start-here.md) guide.
 
