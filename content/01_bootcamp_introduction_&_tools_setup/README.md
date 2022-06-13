@@ -82,6 +82,7 @@ Miniconda is a small bootstrap version of Anaconda that includes only conda, Pyt
 We will now create our first conda environment to install all required packages for the bootcamp. The most reproducible and recommended way to install a conda environment is from an environment definition in a ".yml" file. To this end, the repository that we just cloned in the previous step contains an "environment.yml" file where the Python version as well as all required packages including their respective versions are defined. We can install the conda environment from the "environment.yml" file as follows:
 - First navigate to the root of your local repository by running ```cd datascience-bootcamp```.  
 - Then run ```conda env create -f environment.yml``` to install the conda environment defined in the "environment.yml" file.
+- After the installation is done, run ```conda env list``` to list all conda environments. Next to the "base" environment, which is installed by default, you should now see the environment named "datascience-bootcamp".
 
 ### 1.2.5 Visual Studio Code (VSCode)
 #### 1.2.5.1 Install VSCode
