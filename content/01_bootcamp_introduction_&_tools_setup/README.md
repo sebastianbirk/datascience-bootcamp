@@ -83,6 +83,7 @@ We will now create our first conda environment to install all required packages 
 - First navigate to the root of your local repository by running ```cd datascience-bootcamp```.  
 - Then run ```conda env create -f environment.yml``` to install the conda environment defined in the "environment.yml" file.
 - After the installation is done, run ```conda env list``` to list all conda environments. Next to the "base" environment, which is installed by default, you should now see the environment named "datascience-bootcamp".
+- OPTIONAL: to uninstall the newly installed conda environment, run ```conda env remove -n datascience-bootcamp```.
 
 ### 1.2.5 Visual Studio Code (VSCode)
 #### 1.2.5.1 Install VSCode
