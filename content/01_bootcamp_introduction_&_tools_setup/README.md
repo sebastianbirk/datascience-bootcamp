@@ -73,9 +73,11 @@ Miniconda is a small bootstrap version of Anaconda that includes only conda, Pyt
 
 In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script: ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 
-Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
+Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh``` and follow the prompts on the installer screens.
 
 Afterwards, you can remove the installation script: ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
+
+To make the installation changes take effect, close and then re-open your terminal window.
 
 #### 1.2.4.2 Create the Conda Environment
 
