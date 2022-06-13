@@ -48,7 +48,7 @@ Git enables us to version control our files and track changes so that we have a 
 - If you don't yet have a GitHub account, sign up [here](https://github.com/).
 
 #### 1.2.3.2 Install Git in WSL
-**Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+**Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git)
 
 - Run the following from your bash command line interface (inside Windows Terminal) to install the latest stable Git version:
 ```sudo apt-get install git```.
@@ -69,7 +69,7 @@ Git enables us to version control our files and track changes so that we have a 
 Miniconda is a small bootstrap version of Anaconda that includes only conda, Python and the packages they depend on as well as a small number of other useful packages including pip, zlib and few others. Anaconda is the world’s most popular open-source Python distribution platform and one of its main components, conda, is an open-source package and environment management system that runs on Windows, macOS, and Linux. With conda, we can quickly install, run, and update packages and their dependencies. It allows us to easily create, save, load, and switch between environments on our local computer, thus enabling an isolated, project-specific environment management. Conda was initially created for Python programs, but it can package and distribute software for any language. 
 
 #### 1.2.4.1 Install Miniconda with Python 3.9 in WSL
-**Documentation & Instructions**: https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
+**Documentation & Instructions**: [https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 
 - In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script: ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
 - Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh``` and follow the prompts on the installer screens. Answer "yes" to all questions, particularly to whether you wish the installer to initialize Miniconda3 by running conda init.
@@ -86,9 +86,18 @@ We will now create our first conda environment to install all required packages 
 - You can activate the new environment by running ```conda activate datascience-bootcamp```.
 - OPTIONAL: to uninstall the newly installed conda environment, run ```conda env remove -n datascience-bootcamp```.
 
-
 ### 1.2.5 Visual Studio Code (VSCode)
+
+Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with support for many languages including Python and has a rich ecosystem of useful extensions, e.g. for working with Git and Azure. With VSCode we can take advantage of features like Intellisense code completion, linting, debug support, code snippets, and unit testing.
+
 #### 1.2.5.1 Install VSCode
+
+**Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
+
+- Visit the [VS Code install page](https://code.visualstudio.com/download) and download the adquate installer. Then install Visual Studio Code on Windows (not in your WSL file system).
+- When prompted to Select Additional Tasks during installation, be sure to check the Add to PATH option so you can easily open a folder in WSL using the code command.
+
+Install the Remote Development extension pack. This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
 
 #### 1.2.5.2 Install VSCode Remote Development Extension
 
