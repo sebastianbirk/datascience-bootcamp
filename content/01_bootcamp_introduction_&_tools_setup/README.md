@@ -77,7 +77,10 @@ Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-
 
 Afterwards, you can remove the installation script: ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
 
-#### 1.2.4.2 Create the Miniconda Environment
+#### 1.2.4.2 Create the Conda Environment
+
+We will now create our first conda environment to install all required packages for the bootcamp. The most reproducible and recommended way to install a conda environment is from an environment definition in a ".yml" file. To this end, the repository that we just cloned in the previous step contains an "environment.yml" file where the Python version as well as all required packages including their respective versions are defined. We can install the conda environment from the "environment.yml" file as follows:
+- First navigate to the root of your local repository by running ```cd datascience-bootcamp```.  Then run ```conda env create -f environment.yml``` to install the conda environment from the "environment.yml" file.
 
 ### 1.2.5 Visual Studio Code (VSCode)
 #### 1.2.5.1 Install VSCode
