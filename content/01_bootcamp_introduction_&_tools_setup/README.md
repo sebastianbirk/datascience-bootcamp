@@ -84,6 +84,7 @@ We will now create our first conda environment to install all required packages 
 - Then run ```conda env create -f environment.yml``` to install the conda environment defined in the "environment.yml" file.
 - After the installation is done, run ```conda env list``` to list all conda environments. Next to the "base" environment, which is installed by default, you should now see the environment named "datascience-bootcamp".
 - You can activate the new environment by running ```conda activate datascience-bootcamp```.
+- To deactivate the new environment, run ```conda deactivate datascience-bootcamp```.
 - OPTIONAL: to uninstall the newly installed conda environment, run ```conda env remove -n datascience-bootcamp```.
 
 ### 1.2.5 Visual Studio Code (VSCode)
@@ -94,7 +95,7 @@ Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerfu
 
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
 
-- Visit the [VS Code install page](https://code.visualstudio.com/download) and download the adquate installer. Then install Visual Studio Code on Windows (not in your WSL file system).
+- Visit the [VS Code install page](https://code.visualstudio.com/download) and download the adequate installer. Then install Visual Studio Code on Windows (not in your WSL file system).
 - When prompted to Select Additional Tasks during installation, be sure to check the Add to PATH option so you can easily open a folder in WSL using the code command.
 
 Install the Remote Development extension pack. This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
