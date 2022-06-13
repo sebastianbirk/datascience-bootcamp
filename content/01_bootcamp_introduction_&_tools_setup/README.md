@@ -45,20 +45,19 @@ Windows Terminal is a modern application that allows the use of many command-lin
 Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and makes collaboration easier, allowing changes by multiple people to be merged into a common repository.
 
 #### 1.2.3.1 Register a GitHub Account
-If you don't yet have a GitHub account, sign up [here](https://github.com/).
+- If you don't yet have a GitHub account, sign up [here](https://github.com/).
 
 #### 1.2.3.2 Install Git in WSL
 **Documentation & Instructions**: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
 
-Run the following from your bash command line interface (inside Windows Terminal) to install the latest stable Git version:
+- Run the following from your bash command line interface (inside Windows Terminal) to install the latest stable Git version:
 ```sudo apt-get install git```.
 
 #### 1.2.3.3 Git Config File Setup
-To set up the Git config file, run:
-```git config --global user.name "<YOUR_NAME>"``` and replace <YOUR_NAME> with your Github Account user name. Then run
-```git config --global user.email "<YOUR_EMAIL>"``` and replace <YOUR_EMAIL> with your Github Account email.
-
-If you need to edit the Git config, you can use the text editor nano as follows:
+- To set up the Git config file, run:
+```git config --global user.name "<YOUR_NAME>"``` and replace <YOUR_NAME> with your Github Account user name.
+- Then run ```git config --global user.email "<YOUR_EMAIL>"``` and replace <YOUR_EMAIL> with your Github Account email.
+- If you need to edit the Git config, you can use the text editor nano as follows:
 ```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
 #### 1.2.3.4 Use Git to Clone this Repository
