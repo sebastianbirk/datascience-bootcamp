@@ -135,7 +135,7 @@ JupyterLab is the latest open-source web-based interactive development environme
 
 ## 1.3 Introduction to Python
 
-- Now that we have started a JupyterLab session, open the notebook **"1.3_python_introduction"** in the **"01_bootcamp_intro_tools_setup_&_python_intro"** folder. All further instructions are written in markdown cells directly in this notebook.
+- Now that we have started a JupyterLab session, open the notebook **"1.3_python_introduction"** in the **"01_bootcamp_intro_tools_setup_&_python_intro"** folder from your JupyterLab browser application. Then, go through the notebook by following the instructions written directly in the markdown cells of this notebook.
 
 ## 1.4 Summary Remarks
 
