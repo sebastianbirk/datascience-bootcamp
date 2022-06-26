@@ -135,8 +135,11 @@ JupyterLab is the latest open-source web-based interactive development environme
 
 ## 1.3 Introduction to Python
 
-- Now that we have started a JupyterLab session, open the notebook "01_introduction_to_python" in the "01_bootcamp_intro_tools_setup_&_intro_to_python" folder.
+- Now that we have started a JupyterLab session, open the notebook **"1.3_python_introduction"** in the **"01_bootcamp_intro_tools_setup_&_python_intro"** folder. All further instructions are written in markdown cells directly in this notebook.
 
+## 1.4 Summary Remarks
+
+Congratulations on making it until here. You have learned a great deal about different useful data science tools that can be leveraged to efficiently run analyses on your data and you have made your first steps into Python, one of the most powerful general-purpose programming languages and the leading programming language among data scientists. From here on, we will deep dive into different data-related topics, many of which will have lab sessions in notebooks similar to as you have seen in the "1.3_python_introduction" notebook. Thanks to our conda environment, you will have all required Python packages to your availability and the only thing you have to worry about is activating the environment and running JupyterLab from within the environment.
 
 ## Virtual Machine (Ubuntu 18.04)
 
