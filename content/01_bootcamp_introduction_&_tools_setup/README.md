@@ -63,6 +63,7 @@ Git enables us to version control our files and track changes so that we have a 
 #### 1.2.3.4 Use Git to Clone this Repository
 - From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps. 
 - Type ```ls``` to list all files and directories and you should now see a new folder called "datascience-bootcamp".
+- To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```.
 
 ### 1.2.4 Miniconda
 
