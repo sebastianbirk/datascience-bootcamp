@@ -119,8 +119,11 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
 
-##### 1.2.6.1 Install JupyterLab 
+##### 1.2.6.1 Run JupyterLab 
 
+- Activate the datascience-bootcamp conda environment by opening your Linux distribution's command line via Windows Terminal and typing ```conda activate datascience-bootcamp```.
+- Then type ```jupyter lab --no-browser``` to launch JupyterLab. Copy the URL, open the browser of your choice on your local workstation (e.g. Google Chrome), and paste the URL into the address bar. (**Note**: don't close the terminal as we have started an interactive JupyterLab session, which will be terminated once you close your terminal. You can stop the interactive session by pressing "CTRL + C".)
+- You can now work with notebooks (".ipynb" format) in JupyterLab and follow the hands-on lab sessions during the rest of the data science bootcamp. All packages that you will need during the bootcamp are defined in the "environment.yml" file and have therefore been installed in your conda environment called "datascience-bootcamp". Since we started the JupyterLab session from within this environment, you have now access to all required packages.
 
 
 ## Virtual Machine (Ubuntu 18.04)
