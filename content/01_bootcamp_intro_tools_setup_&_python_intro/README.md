@@ -1,4 +1,4 @@
-# 1. Bootcamp Introduction & Tools Setup
+# 1. Bootcamp Introduction, Tools Setup & Introduction to Python
 
 ## 1.1 Bootcamp Introduction
 
@@ -63,6 +63,7 @@ Git enables us to version control our files and track changes so that we have a 
 #### 1.2.3.4 Use Git to Clone this Repository
 - From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps. 
 - Type ```ls``` to list all files and directories and you should now see a new folder called "datascience-bootcamp".
+- To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```.
 
 ### 1.2.4 Miniconda
 
@@ -105,7 +106,7 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 #### 1.2.5.3 Open a WSL project in Visual Studio Code
 
-- Open your Linux distribution's command line via Windows Terminal and type ```code .``` (Note: it might take some time to install the VS Code Server if you run the command for the first time).
+- Open your Linux distribution's command line via Windows Terminal and type ```code .``` (**Note:** it might take some time to install the VS Code Server if you run the command for the first time).
 - You can also access more VS Code Remote options by using the shortcut: CTRL+SHIFT+P in VS Code to bring up the command palette. If you then type Remote-WSL you will see a list of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
 
 #### 1.2.5.4 Extensions inside of VS Code Remote
@@ -118,8 +119,15 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
 
-##### 1.2.6.1 Install JupyterLab 
+##### 1.2.6.1 Run JupyterLab 
 
+- Activate the datascience-bootcamp conda environment by opening your Linux distribution's command line via Windows Terminal and typing ```conda activate datascience-bootcamp```.
+- Then type ```jupyter lab --no-browser``` to launch JupyterLab. Copy the URL, open the browser of your choice on your local workstation (e.g. Google Chrome), and paste the URL into the address bar. (**Note**: don't close the terminal as we have started an interactive JupyterLab session, which will be terminated once you close your terminal. You can stop the interactive session by pressing "CTRL + C".)
+- You can now work with notebooks (".ipynb" format) in JupyterLab and follow the hands-on lab sessions during the rest of the data science bootcamp. All packages that you will need during the bootcamp are defined in the "environment.yml" file and have therefore been installed in your conda environment called "datascience-bootcamp". Since we started the JupyterLab session from within this environment, you have now access to all required packages.
+
+## 1.3 Introduction to Python
+
+- Now that we have started a JupyterLab session, open the notebook "01_introduction_to_python" in the "01_bootcamp_intro_tools_setup_&_intro_to_python" folder.
 
 
 ## Virtual Machine (Ubuntu 18.04)
