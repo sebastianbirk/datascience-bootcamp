@@ -96,12 +96,17 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
 
-- Visit the [VS Code install page](https://code.visualstudio.com/download) and download the adequate installer. Then install Visual Studio Code on Windows (not in your WSL file system).
+- Visit the [VS Code install page](https://code.visualstudio.com/download) and download the installer for Windows. Then install Visual Studio Code on Windows (not in your WSL file system).
 - When prompted to Select Additional Tasks during installation, be sure to check the Add to PATH option so you can easily open a folder in WSL using the code command.
 
 #### 1.2.5.2 Install VSCode Remote Development Extension
 
-Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
+- Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
+
+#### 1.2.5.3 Open a WSL project in Visual Studio Code
+
+- Open your Linux distribution's command line via Windows Terminal and type ```code .```
+- You can also access more VS Code Remote options by using the shortcut: CTRL+SHIFT+P in VS Code to bring up the command palette. If you then type Remote-WSL you will see a list of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
 
 ## Virtual Machine (Ubuntu 18.04)
 
