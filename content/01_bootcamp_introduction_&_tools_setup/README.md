@@ -89,7 +89,8 @@ We will now create our first conda environment to install all required packages 
 
 ### 1.2.5 Visual Studio Code (VSCode)
 
-Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with support for many languages including Python and has a rich ecosystem of useful extensions, e.g. for working with Git and Azure. With VSCode we can take advantage of features like Intellisense code completion, linting, debug support, code snippets, and unit testing.
+Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with support for many languages including Python and has a rich ecosystem of useful extensions, e.g. for working with Git and Azure including a source control tab that will show your changes and handle a variety of git commands for you.. With VSCode we can take advantage of features like Intellisense code completion, linting, debug support, code snippets, and unit testing. Learn more about VS Code's Git support here:
+https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 #### 1.2.5.1 Install VSCode
 
@@ -98,12 +99,9 @@ Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerfu
 - Visit the [VS Code install page](https://code.visualstudio.com/download) and download the adequate installer. Then install Visual Studio Code on Windows (not in your WSL file system).
 - When prompted to Select Additional Tasks during installation, be sure to check the Add to PATH option so you can easily open a folder in WSL using the code command.
 
-Install the Remote Development extension pack. This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
-
 #### 1.2.5.2 Install VSCode Remote Development Extension
 
-Visual Studio Code comes with built-in support for Git, including a source control tab that will show your changes and handle a variety of git commands for you. Learn more about VS Code's Git support here:
-https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
+Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
 
 ## Virtual Machine (Ubuntu 18.04)
 
