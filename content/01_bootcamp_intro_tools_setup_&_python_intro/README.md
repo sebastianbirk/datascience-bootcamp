@@ -1,10 +1,18 @@
-# 1. Bootcamp Introduction, Tools Setup & Introduction to Python
+# 1. Bootcamp Introduction, Tools Setup & Python Introduction
 
 ## 1.1 Bootcamp Introduction
 
 The bootcamp introduction presentation is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/01_bootcamp_introduction_%26_tools_setup/01_bootcamp_introduction_%26_tools_setup.pptx).
 
 ## 1.2 Tools Setup
+
+Before we start the deep dive into the data-related topics of the data science bootcamp, we will install all required tools on our system and at the same time familiarize ourselves with a chosen subset of the landscape of commonly used data science tools (**Note**: here we assume that you are working with a Windows OS; steps will deviate if you have MacOS or a Linux distribution). While the landscape of data science tools is very diverse nowadays, we will cover some of the most well known tools including:
+- Windows Subystem for Linux (WSL)
+- Windows Terminal
+- Git
+- Miniconda & Conda
+- Visual Studio Code
+- JupyterLab
 
 ### 1.2.1 Windows Subsystem for Linux (WSL)
 WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
