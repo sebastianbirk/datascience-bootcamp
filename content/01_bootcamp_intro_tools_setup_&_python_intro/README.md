@@ -14,6 +14,16 @@ Before we start the deep dive into the data-related topics of the data science b
 - Visual Studio Code
 - JupyterLab
 
+As an alternative to using your local workstation for the datascience bootcamp, you can also create an Ubuntu 18.04 Virtual Machine in the Azure cloud. In this case, the Windows Subsystem for Linux (WSL) and the Windows Terminal sections will be irrelevant for you and you can skip these sections. For the Visual Studio Code section, you can just install and use Visual Studio Code and you will not need the Remote Development extension.
+
+Only if you want to use an Azure VM, follow below steps. Otherwise skip to section 1.2.1:
+
+- Deploy the Ubuntu 18.04 VM in your Azure subscription:
+    - [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsebastianbirk%2Fdatascience-bootcamp%2Fmain%2Finfrastructure%2Fvm%2Ftemplate.json)
+    - Make sure to choose your own password before creating the resource and be aware that in a production scenario SSH keys would be the preferred authentication method and password should not be used (**Note**: If you are interested in learning more about Azure Deployment Buttons, check this out: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button).
+    - After your Virtual Machine is deployed, you can access it by opening the Command Prompt from your Windows machine and typing:
+ssh server-admin@<DNS_NAME> where you can find the <DNS_NAME> on the Overview page of your Virtual Machine in the Azure Portal.
+
 ### 1.2.1 Windows Subsystem for Linux (WSL)
 WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
 When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
@@ -140,16 +150,3 @@ JupyterLab is the latest open-source web-based interactive development environme
 ## 1.4 Summary Remarks
 
 Congratulations on making it until here! You have learned a great deal about different useful data science tools that can be leveraged to efficiently run analyses with your data and you have installed these tools on your local workstation so that you can use them for this bootcamp and your future projects. In addition, you have taken your first steps to learn Python, one of the most powerful general-purpose programming languages and the leading programming language among data scientists. From here on, we will deep dive into different data-related topics, many of which will have lab sessions in notebooks similar to as you have seen in the "1.3_python_introduction" notebook. Thanks to our conda environment, you will have all required Python packages to your availability and the only thing you have to worry about is activating the environment and running JupyterLab from within the environment.
-
-## Virtual Machine (Ubuntu 18.04)
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsebastianbirk%2Fdatascience-bootcamp%2Fmain%2Finfrastructure%2Fvm%2Ftemplate.json)
-
-Make sure to choose your own password before creating the resource and be aware that in a production scenario SSH keys would be the preferred authentication method and password should not be used.
-
-**Note**: If you are interested in learning more about Azure Deployment Buttons, check this out: https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button
-
-After your Virtual Machine is deployed, you can access it by opening the Command Prompt from your Windows machine and typing:
-ssh server-admin@<DNS_NAME> where you can find the <DNS_NAME> on the Overview page of your Virtual Machine in the Azure Portal.
-
-```sudo apt install azure-cli```
