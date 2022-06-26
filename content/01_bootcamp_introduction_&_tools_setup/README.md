@@ -118,6 +118,8 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
 
+##### 1.2.6.1 Install JupyterLab 
+
 
 
 ## Virtual Machine (Ubuntu 18.04)
