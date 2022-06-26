@@ -105,8 +105,14 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 #### 1.2.5.3 Open a WSL project in Visual Studio Code
 
-- Open your Linux distribution's command line via Windows Terminal and type ```code .```
+- Open your Linux distribution's command line via Windows Terminal and type ```code .``` (Note: it might take some time to install the VS Code Server if you run the command for the first time).
 - You can also access more VS Code Remote options by using the shortcut: CTRL+SHIFT+P in VS Code to bring up the command palette. If you then type Remote-WSL you will see a list of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
+
+#### 1.2.5.4 Extensions inside of VS Code Remote
+
+- The Remote-WSL extension splits VS Code into a “client-server” architecture, with the client (the user interface) running on your Windows machine and the server (your code, Git, plugins, etc) running remotely in WSL.
+- When running VS Code Remote, extensions can be installed either on your local machine or on your WSL distribution (remote). Selecting the 'Extensions' tab will display a list of extensions split between your local machine and your WSL distribution (remote). Extensions for the client (the user interface), like themes, are installed once on your local machine. Installing server extensions on the remote, like the Python extension, or anything that handles things like linting or debugging, must be done separately on the remote WSL distribution (on each one if you have multiple). VS Code will display a warning icon ⚠, along with a green "Install in WSL" button, if you have an extension locally installed that is not installed on your WSL Remote.
+- Now install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) on your WSL distribution.
 
 ## Virtual Machine (Ubuntu 18.04)
 
