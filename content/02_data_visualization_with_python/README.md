@@ -1,8 +1,17 @@
 # 2. Data Visualization with Python
 
-## 2.1 Data visualization & Dimensionality Reduction
+## 2.1 Data visualization
+
+![image](https://user-images.githubusercontent.com/37260563/180991902-1a63f8d6-06ec-477d-a918-e8092787df9c.png)
 
 Data visualization is a significant aspect of all AI and machine learning applications. With different graphical representations, you can gain important insights about your data. 
+
+Typically, data is visualized in the form of a chart, infographic, diagram or map.
+
+- Identify trends and outliers
+- Tell a story within the data
+- Reinforce an argument or opinion
+- Highlight an important point in a set of data
 
 Python offers several libraries that provide different functions for visualizing data. All of these libraries have different functions and can support different types of graphs. We will discuss three such libraries - Matplotlib, Seaborn and Plotly
 
@@ -44,3 +53,4 @@ Basic familiarity with Python is assumed.
   1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/1.Data_Visualization_Lecture.ipynb
   2. LAB Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.Data_Visualization_Lab.ipynb
   3. Datasets - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/02_data_visualization_with_python
+
