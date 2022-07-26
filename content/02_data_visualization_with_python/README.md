@@ -8,11 +8,11 @@ Python offers several libraries that provide different functions for visualizing
 
 We aim to cover the following types of plots:
 
-- Relational plots
+- **Relational plots**
   - line plots
   - scatter plots
   - correlation plots
-- Categorical plots
+- **Categorical plots**
   - bar plots
   - histogram
   - boxplot
@@ -24,9 +24,9 @@ We will also learn how to customize and style plots. Throughout the session, we'
 
 ## 2.2 Prerequisites:
 Check if the below libraries are installed.
-  - Matplotlib: is a 2D python plotting library which allows you to generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc, with just a few lines of code.
-  - Seaborn: is a library for making statistical graphics in Python. It's built on top of matplotlib and is tightly integrated with the PyData stack, including support for numpy and pandas data structures and statistical routines from scipy and statsmodels.
-  - Plotly: is a graphing library makes interactive, publication-quality graphs.    
+  - [Matplotlib](https://matplotlib.org/) : is a 2D python plotting library which allows you to generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc, with just a few lines of code.
+  - [Seaborn](https://seaborn.pydata.org/): is a library for making statistical graphics in Python. It's built on top of matplotlib and is tightly integrated with the PyData stack, including support for numpy and pandas data structures and statistical routines from scipy and statsmodels.
+  - [Plotly](https://plotly.com/python/): is a graphing library makes interactive, publication-quality graphs.    
   - sklearn: To implement Dimentionality reduction
  
 Basic familiarity with Python is assumed.
