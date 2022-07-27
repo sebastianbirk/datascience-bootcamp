@@ -102,7 +102,7 @@ Miniconda is a small bootstrap version of Anaconda that includes only conda, Pyt
 - Then, run the script to install Miniconda: ```bash Miniconda3-py39_4.12.0-Linux-x86_64.sh``` and follow the prompts on the installer screens. Answer "yes" to all questions, particularly to whether you wish the installer to initialize Miniconda3 by running conda init.
 - Afterwards, you can remove the installation script: ```rm Miniconda3-py39_4.12.0-Linux-x86_64.sh```.
 - To make the installation changes take effect, close and then re-open your terminal window.
-- Run ```conda list``` to verify that conda is now installed. If an output of packages is returned, you are good to go.
+- Run ```conda list``` to verify that conda is now installed. If an output of packages is returned, you are good to go; otherwise it will tell you that the conda command was not found.
 
 #### 1.2.4.2 Create the Conda Environment
 
