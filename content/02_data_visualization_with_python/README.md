@@ -50,7 +50,8 @@ Basic familiarity with Python is assumed.
 7. LAB - To explore various visualization plots 
 
 ## 2.4 Link to Data & Notebooks:
-  1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/1.Data_Visualization_Lecture.ipynb
-  2. LAB Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.Data_Visualization_Lab.ipynb
+  1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.1.Data_Visualization_Lecture.ipynb
+  2. LAB Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.2.Data_Visualization_Lab.ipynb
+  3. LAB Notebook Solutions - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.3.Data_Visualization_Lab_Solutions.ipynb
   3. Datasets - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/02_data_visualization_with_python
 
