@@ -16,7 +16,7 @@ Before we start the deep dive into the data-related topics of the data science b
 
 As an alternative to using your local workstation for the data science bootcamp, you can also create an Ubuntu 18.04 Virtual Machine in the Azure cloud. In this case, the Windows Subsystem for Linux (WSL) and the Windows Terminal sections will be irrelevant for you and you can skip these sections. For the Visual Studio Code section, you can just install and use Visual Studio Code and you will not need the Remote Development extension.
 
-<span style="color:red"Only if you want to use an Azure VM, follow below steps. Otherwise skip to section 1.2.1:</span>.
+<span style="color:red" Only if you want to use an Azure VM, follow below steps. Otherwise skip to section 1.2.1: </span>.
 
 - Deploy the Ubuntu 18.04 VM in your Azure subscription:
     - [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsebastianbirk%2Fdatascience-bootcamp%2Fmain%2Finfrastructure%2Fvm%2Ftemplate.json)
