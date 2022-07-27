@@ -49,6 +49,8 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 
 Windows Terminal is a modern application that allows the use of many command-line shells like Command Prompt, PowerShell and bash (via Windows Subsystem for Linux) in a beautiful customizable terminal with features such as multiple tabs and panes, Unicode and UTF-8 character support and a GPU accelerated text rendering engine.
 
+**Documentation**: [https://docs.microsoft.com/en-us/windows/terminal/]
+
 #### 1.2.2.1 Install Windows Terminal from the Microsoft Store
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/terminal/install](https://docs.microsoft.com/en-us/windows/terminal/install)
 
