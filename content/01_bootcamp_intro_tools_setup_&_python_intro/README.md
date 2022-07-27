@@ -31,6 +31,8 @@ ssh server-admin@<DNS_NAME> where you can find the <DNS_NAME> on the Overview pa
 WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
 When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
 
+**Documentation**: [https://docs.microsoft.com/en-us/windows/wsl/](https://docs.microsoft.com/en-us/windows/wsl/)
+
 #### 1.2.1.1 Install WSL
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install)
 
