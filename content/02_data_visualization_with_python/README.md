@@ -47,7 +47,7 @@ Basic familiarity with Python is assumed.
 4. Data Visualization with Plotly - interactive graphs
 5. Dimensionality Reduction - PCA & UMAP
 6. Python vs. Power BI
-7. LAB - To try some 
+7. LAB - To explore various visualization plots 
 
 ## 2.4 Link to Data & Notebooks:
   1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/1.Data_Visualization_Lecture.ipynb
