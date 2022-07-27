@@ -14,7 +14,9 @@ Before we start the deep dive into the data-related topics of the data science b
 - Visual Studio Code
 - JupyterLab
 
-As an alternative to using your local workstation for the data science bootcamp, you can also create an Ubuntu 18.04 Virtual Machine in the Azure cloud. In this case, the Windows Subsystem for Linux (WSL) and the Windows Terminal sections will be irrelevant for you and you can skip these sections. For the Visual Studio Code section, you can just install and use Visual Studio Code and you will not need the Remote Development extension.
+In addition to these tools, which we will install locally, you will also need an Azure subscription with some credits. You can get an Azure subscription with credits e.g. through a Visual Studio Professional Subscripton ($50 monthly credit) or a Visual Studio Enterprise Subscription ($150 monthly credit). The credits will be needed for session 8 "Applied Data Science with Azure" and session 9 "Distributed Computing & Spark". If you are an Avanadee, and you do not have a Visual Studio Professional or Enterprise subscription yet, you can go to the Support Portal and search for Visual Studio Subscriptions. There you will find instructions on how to request a subscription.
+
+If you have an Azure subscription with credits, as an alternative to using your local workstation for the data science bootcamp, you can also create an Ubuntu 18.04 Virtual Machine in the Azure cloud. In this case, the Windows Subsystem for Linux (WSL) and the Windows Terminal sections will be irrelevant for you and you can skip these sections. For the Visual Studio Code section, you can just install and use Visual Studio Code and you will not need the Remote Development extension.
 
 Only if you want to use an Azure VM, follow below steps. Otherwise skip to section 1.2.1:
 
