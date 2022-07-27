@@ -85,10 +85,11 @@ Git enables us to version control our files and track changes so that we have a 
 - If you need to edit the Git config, you can use the text editor nano as follows:
 ```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
-#### 1.2.3.4 Use Git to Clone this Repository
+#### 1.2.3.4 Using Git
 - From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps. 
 - Type ```ls``` to list all files and directories and you should now see a new folder called "datascience-bootcamp".
-- To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```.
+- To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```. We will run this command at the start of every session of the bootcamp to have the up-to-date content.
+- Udacity has a very good free course about Git essentials [here](https://www.udacity.com/course/version-control-with-git--ud123), which we can recommend. In general, we would strongly advise to use Git for version control for your future coding projects. For Avanade internal projects we can also use Git with Azure DevOps (Azure Repos) instead of Github. Find more information on using Git with Azure DevOps [here](https://docs.microsoft.com/en-us/azure/devops/user-guide/code-with-git?view=azure-devops).
 
 ### 1.2.4 Miniconda
 
