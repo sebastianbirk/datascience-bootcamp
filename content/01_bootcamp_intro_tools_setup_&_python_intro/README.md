@@ -69,6 +69,8 @@ Windows Terminal is a modern application that allows the use of many command-lin
 
 Git enables us to version control our files and track changes so that we have a nicely structured recorded history and don't need to duplicate files to save different versions in an intransparent way. It also gives us the ability to easily revert to previous versions of files and makes collaboration easier, allowing changes by multiple people to be merged into a common repository.
 
+**Documentation**: [https://git-scm.com/doc](https://git-scm.com/doc)
+
 #### 1.2.3.1 Register a GitHub Account
 - If you don't yet have a GitHub account, sign up [here](https://github.com/).
 
@@ -95,6 +97,8 @@ Git enables us to version control our files and track changes so that we have a 
 
 Miniconda is a small bootstrap version of Anaconda that includes only conda, Python and the packages they depend on as well as a small number of other useful packages including pip, zlib and few others. Anaconda is the world’s most popular open-source Python distribution platform and one of its main components, conda, is an open-source package and environment management system that runs on Windows, macOS, and Linux. With conda, we can quickly install, run, and update packages and their dependencies. It allows us to easily create, save, load, and switch between environments on our local computer, thus enabling an isolated, project-specific environment management. Conda was initially created for Python programs, but it can package and distribute software for any language. 
 
+**Documentation**: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+
 #### 1.2.4.1 Install Miniconda with Python 3.9 in WSL
 **Documentation & Instructions**: [https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 
@@ -118,6 +122,8 @@ We will now create our first conda environment to install all required packages 
 
 Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with support for many languages including Python and has a rich ecosystem of useful extensions, e.g. for working with Git and Azure including a source control tab that will show your changes and handle a variety of git commands for you.. With VSCode we can take advantage of features like Intellisense code completion, linting, debug support, code snippets, and unit testing. Learn more about VS Code's Git support here:
 https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
+
+**Documentation**: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
 #### 1.2.5.1 Install VSCode
 
@@ -144,6 +150,8 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 #### 1.2.6 JupyterLab
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
+
+**Documentation**: [https://jupyterlab.readthedocs.io/en/stable/](https://jupyterlab.readthedocs.io/en/stable/)
 
 ##### 1.2.6.1 Run JupyterLab 
 
