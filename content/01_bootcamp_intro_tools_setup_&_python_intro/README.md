@@ -2,7 +2,7 @@
 
 ## 1.1 Bootcamp Introduction
 
-The bootcamp introduction presentation is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/01_bootcamp_introduction_%26_tools_setup/01_bootcamp_introduction_%26_tools_setup.pptx).
+The bootcamp introduction presentation is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/01_bootcamp_intro_tools_setup_%26_python_intro/1.0_bootcamp_introduction.pptx).
 
 ## 1.2 Tools Setup
 
