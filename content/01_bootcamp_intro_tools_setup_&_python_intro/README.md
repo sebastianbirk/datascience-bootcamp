@@ -10,7 +10,7 @@ Before we start the deep dive into the data-related topics of the data science b
 - Windows Subystem for Linux (WSL)
 - Windows Terminal
 - Git
-- Miniconda & Conda
+- Miniconda / Conda & Python
 - Visual Studio Code
 - JupyterLab
 
@@ -91,7 +91,7 @@ Git enables us to version control our files and track changes so that we have a 
 - To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```. We will run this command at the start of every session of the bootcamp to have the up-to-date content.
 - Udacity has a very good free course about Git essentials [here](https://www.udacity.com/course/version-control-with-git--ud123), which we can recommend. In general, we would strongly advise to use Git for version control for your future coding projects. For Avanade internal projects we can also use Git with Azure DevOps (Azure Repos) instead of Github. Find more information on using Git with Azure DevOps [here](https://docs.microsoft.com/en-us/azure/devops/user-guide/code-with-git?view=azure-devops).
 
-### 1.2.4 Miniconda
+### 1.2.4 Miniconda & Python
 
 Miniconda is a small bootstrap version of Anaconda that includes only conda, Python and the packages they depend on as well as a small number of other useful packages including pip, zlib and few others. Anaconda is the world’s most popular open-source Python distribution platform and one of its main components, conda, is an open-source package and environment management system that runs on Windows, macOS, and Linux. With conda, we can quickly install, run, and update packages and their dependencies. It allows us to easily create, save, load, and switch between environments on our local computer, thus enabling an isolated, project-specific environment management. Conda was initially created for Python programs, but it can package and distribute software for any language. 
 
