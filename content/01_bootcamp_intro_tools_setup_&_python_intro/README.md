@@ -110,7 +110,7 @@ We will now create our first conda environment to install all required packages 
 - First navigate to the root of your local repository by running ```cd datascience-bootcamp```.  
 - Then run ```conda env create -f environment.yml``` to install the conda environment defined in the "environment.yml" file. **Note**: When using WSL, it can happen that Conda fails to connect to the anaconda repo and returns a CondaHTTPError. If that is the case, open the Windows Command Prompt and type ```wsl --shutdown```. This will restart WSL. Then open WSL and try again.
 - After the installation is done, run ```conda env list``` to list all conda environments. Next to the "base" environment, which is installed by default, you should now see the environment named "datascience-bootcamp".
-- You can activate the new environment by running ```conda activate datascience-bootcamp```.
+- You can activate the new environment by running ```conda activate datascience-bootcamp```. We will activate this environment at the beginning of every session of the data science bootcamp. In your day-to-day work, we recommend to create different conda environments for different projects so that you have isolated environments and don't break things by incompatability of packages across projects.
 - To deactivate the new environment, run ```conda deactivate datascience-bootcamp```.
 - OPTIONAL: to uninstall the newly installed conda environment, run ```conda env remove -n datascience-bootcamp```.
 
