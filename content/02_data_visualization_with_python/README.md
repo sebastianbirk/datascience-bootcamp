@@ -26,10 +26,9 @@ We aim to cover the following types of plots:
   - histogram
   - boxplot
   - count plot
-  - point plot
   - distribution plot
 
-We will also learn how to customize and style plots. Throughout the session, we'll discuss the plot types best suited for particular kinds of data.
+We will also learn how to customize and style plots. Throughout the session, we'll discuss the plot types best suited for particular kind of data.
 
 ## 2.2 Prerequisites:
 Check if the below libraries are installed.
@@ -50,8 +49,8 @@ Basic familiarity with Python is assumed.
 7. LAB - To explore various visualization plots 
 
 ## 2.4 Link to Data & Notebooks:
-  1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.1.Data_Visualization_Lecture.ipynb
-  2. LAB Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.2.Data_Visualization_Lab.ipynb
-  3. LAB Notebook Solutions - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.3.Data_Visualization_Lab_Solutions.ipynb
+  1. PPT - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.1.Data_Visualization_Notebooks_Approach_&_Structure.pptx
+  1. Lectures Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.2.Data_Visualization_Lecture.ipynb
+  2. LAB Notebook - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.3.Data_Visualization_Lab.ipynb
+  3. LAB Notebook Solutions - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/02_data_visualization_with_python/2.4.Data_Visualization_Lab_Solutions.ipynb
   3. Datasets - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/02_data_visualization_with_python
-
