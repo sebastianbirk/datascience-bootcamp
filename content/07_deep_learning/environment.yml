@@ -1,0 +1,16 @@
+name: datascience-bootcamp-7
+channels:
+- anaconda
+- conda-forge
+- pytorch
+dependencies:
+- ipykernel=6.9.1
+- jupyter=1.0.0
+- jupyter_contrib_nbextensions=0.5.1
+- jupyterlab=3.4.3
+- pip=22.1.2
+- python=3.9.7
+- pytorch=1.12.0
+- pip:
+  - sentencepiece==0.1.96
+  - transformers==4.21.0
