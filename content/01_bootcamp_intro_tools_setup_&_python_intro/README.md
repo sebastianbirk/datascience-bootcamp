@@ -44,7 +44,7 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 - You will now be prompted to create a user account and password for your newly installed Linux distribution. This account will be considered the Linux administrator, with the ability to run sudo (Super User Do) administrative commands.
 - We can now interact with our Ubuntu distribution through the bash console that was launched.
 
-### 1.2.1.2 Set up a WSL development environment
+#### 1.2.1.2 Set up a WSL development environment
 
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment)
 
@@ -156,13 +156,13 @@ https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 - When running VS Code Remote, extensions can therefore be installed either on your local machine or in your WSL distribution (remote). Selecting the 'Extensions' tab will display a list of extensions split between your local machine and your WSL distribution. Extensions for the client (the user interface), like themes, are installed once on your local machine. Installing server extensions on the remote, like the Python extension, or anything that handles things like linting or debugging, must be done separately in your WSL distribution (once in each one if you have multiple). VS Code will display a warning icon ⚠, along with a green "Install in WSL" button, if you have an extension locally installed that is not installed in your WSL.
 - Now install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) in your WSL distribution.
 
-#### 1.2.6 JupyterLab
+### 1.2.6 JupyterLab
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
 
 **Documentation**: [https://jupyterlab.readthedocs.io/en/stable/](https://jupyterlab.readthedocs.io/en/stable/)
 
-##### 1.2.6.1 Run JupyterLab 
+#### 1.2.6.1 Run JupyterLab 
 
 - Activate the datascience-bootcamp conda environment by opening your Linux distribution's command line via Windows Terminal and typing ```conda activate datascience-bootcamp```.
 - Then type ```jupyter lab --no-browser``` to launch JupyterLab. Copy the URL, open the browser of your choice on your local workstation (e.g. Google Chrome), and paste the URL into the address bar. (**Note**: don't close the terminal as we have started an interactive JupyterLab session, which will be terminated once you close your terminal. You can stop the interactive session by pressing "CTRL + C".)
