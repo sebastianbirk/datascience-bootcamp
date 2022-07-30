@@ -28,12 +28,14 @@ Only if you want to use an Azure VM instead of your local workstation, follow be
 ssh server-admin@<DNS_NAME> where you can find the <DNS_NAME> on the Overview page of your Virtual Machine in the Azure Portal.
 
 ### 1.2.1 Windows Subsystem for Linux (WSL)
+
 WSL enables us to use a Linux distribution operating system with Linux tools on our Windows machines in a completely integrated manner (no need to dual-boot).
 When we install a Linux distribution with WSL, we are installing a new file system, separated from the Windows NTFS C:\ drive.
 
 **Documentation**: [https://docs.microsoft.com/en-us/windows/wsl/](https://docs.microsoft.com/en-us/windows/wsl/)
 
 #### 1.2.1.1 Install WSL
+
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 - Open PowerShell or Windows Command Prompt in administrator mode and run
@@ -43,6 +45,7 @@ When we install a Linux distribution with WSL, we are installing a new file syst
 - We can now interact with our Ubuntu distribution through the bash console that was launched.
 
 ### 1.2.1.2 Set up a WSL development environment
+
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment)
 
 - Upgrade your packages using the apt package manager by running ```sudo apt update && sudo apt upgrade``` in the launched bash console.
@@ -63,6 +66,7 @@ Windows Terminal is a modern application that allows the use of many command-lin
 - Once Windows Terminal is installed, search for Terminal in the Windows start menu and start the application. We can also pin Terminal to our Windows taskbar for easy accessibility in the future.
 
 #### 1.2.2.2 Set up Windows Terminal
+
 - Configure "Ubuntu" as your Startup Default profile as described in [https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile](https://docs.microsoft.com/en-us/windows/terminal/install#set-your-default-terminal-profile).
 
 ### 1.2.3 Git
@@ -72,15 +76,18 @@ Git enables us to version control our files and track changes so that we have a 
 **Documentation**: [https://git-scm.com/doc](https://git-scm.com/doc)
 
 #### 1.2.3.1 Register a GitHub Account
+
 - If you don't yet have a GitHub account, sign up [here](https://github.com/).
 
 #### 1.2.3.2 Install Git in WSL
+
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git)
 
 - Run the following from your bash command line interface (inside Windows Terminal) to install the latest stable Git version:
 ```sudo apt-get install git```.
 
 #### 1.2.3.3 Git Config File Setup
+
 - To set up the Git config file, run:
 ```git config --global user.name "<YOUR_NAME>"``` and replace <YOUR_NAME> with your Github Account user name.
 - Then run ```git config --global user.email "<YOUR_EMAIL>"``` and replace <YOUR_EMAIL> with your Github Account email.
@@ -88,6 +95,7 @@ Git enables us to version control our files and track changes so that we have a 
 ```nano ~/.gitconfig```. When you are done, save the changes with CTRL + X  -> Y -> Enter.
 
 #### 1.2.3.4 Using Git
+
 - From the bash command line interface in your Windows Terminal, run: ```git clone https://github.com/sebastianbirk/datascience-bootcamp.git```. This will create a local version of this repository in your WSL. This is needed before we can progress with subsequent steps. 
 - Type ```ls``` to list all files and directories and you should now see a new folder called "datascience-bootcamp".
 - To update your local repository to the must up-to-date status of the remote version, navigate into your repository (```cd datascience-bootcamp```; **Note:** you can use the tap key to autocomplete the directory name) and type ```git pull```. We will run this command at the start of every session of the bootcamp to have the up-to-date content.
@@ -100,6 +108,7 @@ Miniconda is a small bootstrap version of Anaconda that includes only conda, Pyt
 **Documentation**: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
 #### 1.2.4.1 Install Miniconda with Python 3.9 in WSL
+
 **Documentation & Instructions**: [https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html)
 
 - In the bash command line interface in the Windows Terminal (WSL Ubuntu profile), run the following to download the Miniconda installation script: ```wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh```
