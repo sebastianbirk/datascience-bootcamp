@@ -20,9 +20,13 @@ Good introductory courses for deep learning are:
 
 The PyTorch lab notebook is available [here]().
 
-### 7.2.3 Transformers
+To learn more about PyTorch, check out this [online course](https://www.youtube.com/watch?v=c36lUUr864M&t=8387s) or the official [PyTorch Tutorials] (https://pytorch.org/tutorials/)
 
-The Transformers lab notebook is available [here]()
+### 7.2.3 Hugging Face Transformers
+
+The Hugging Face Transformers lab notebook is available [here]()
+
+To learn more about the Hugging Face ecosystem, check this [Hugging Face course](https://huggingface.co/course/chapter1/1).
 
 
 ## 7.3 Summary Remark
