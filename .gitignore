@@ -9,6 +9,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Datasets
+content/datasets/MNIST
+
 # User-specific files
 *.rsuser
 *.suo
