@@ -1,0 +1,1783 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<link rel='icon' id='favicon' type='image/x-icon' href='https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg'>
+<link rel='apple-touch-icon' href='https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg'>
+<link rel='apple-touch-icon' sizes='76x76' href='https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg'>
+<link rel='apple-touch-icon' sizes='114x114' href='https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg'>
+<link rel='apple-touch-icon' sizes='144x144' href='https://www.analyticsvidhya.com/wp-content/uploads/2015/02/logo_square_v2.jpg'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css" />
+
+<link rel=stylesheet type=text/css href=https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css>
+<link rel=stylesheet type=text/css href=https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css>
+
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" integrity="sha256-BtbhCIbtfeVWGsqxk1vOHEYXS6qcvQvLMZqjtpWUEx8=" crossorigin=anonymous>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/css/main.min.css?v=1.9.2" />
+<link rel="stylesheet" href="https://automation.analyticsvidhya.com/static/css/stripBootstrap.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" type="6b3f897a04229929062f4898-text/javascript"></script>
+<title>K Means Clustering Simplified in Python | K Means Algorithm</title>
+
+<script type="6b3f897a04229929062f4898-text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MPSM42V');</script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPSM42V"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script type="6b3f897a04229929062f4898-text/javascript">
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2707761,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+<style>
+.stb-container-css {margin: 10px 10px 10px 10px;}.stb-box {}.stb-caption-box {}.stb-body-box {}
+/* Class Dependent Parameters */
+.stb-border.stb-alert-container {border: 1px none #FF4F4A;}.stb-side.stb-alert-container {background: #FF4F4A;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF4F4A', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #FF4F4A 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FF4F4A), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -o-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -ms-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: linear-gradient(#FF4F4A 30%, #504848 90%);}.stb-side-none.stb-alert-container {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);}.stb-alert_box {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);color: #000000;}.stb-alert-caption_box {background: #FF4F4A;background: -moz-linear-gradient(top,  #FF4F4A 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FF4F4A), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -o-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: -ms-linear-gradient(top,  #FF4F4A 30%,#504848 90%);background: linear-gradient(#FF4F4A 30%, #504848 90%);color: #FFFFFF;}.stb-alert-body_box {background: #FFE7E6;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE7E6', endColorstr='#fb7d78',GradientType=0 );background: -moz-linear-gradient(top,  #FFE7E6 30%, #fb7d78 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FFE7E6), color-stop(90%,#fb7d78));background: -webkit-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -o-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: -ms-linear-gradient(top,  #FFE7E6 30%,#fb7d78 90%);background: linear-gradient(#FFE7E6 30%, #fb7d78 90%);color: #000000;}.stb-border.stb-black-container {border: 1px none #6E6E6E;}.stb-side.stb-black-container {background: #333333;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #333333 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#333333), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #333333 30%,#504848 90%);background: -o-linear-gradient(top,  #333333 30%,#504848 90%);background: -ms-linear-gradient(top,  #333333 30%,#504848 90%);background: linear-gradient(#333333 30%, #504848 90%);}.stb-side-none.stb-black-container {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);}.stb-black_box {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);color: #FFFFFF;}.stb-black-caption_box {background: #333333;background: -moz-linear-gradient(top,  #333333 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#333333), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #333333 30%,#504848 90%);background: -o-linear-gradient(top,  #333333 30%,#504848 90%);background: -ms-linear-gradient(top,  #333333 30%,#504848 90%);background: linear-gradient(#333333 30%, #504848 90%);color: #FFFFFF;}.stb-black-body_box {background: #000000;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );background: -moz-linear-gradient(top,  #000000 30%, #000000 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#000000), color-stop(90%,#000000));background: -webkit-linear-gradient(top,  #000000 30%,#000000 90%);background: -o-linear-gradient(top,  #000000 30%,#000000 90%);background: -ms-linear-gradient(top,  #000000 30%,#000000 90%);background: linear-gradient(#000000 30%, #000000 90%);color: #FFFFFF;}.stb-border.stb-custom-container {border: 1px none #f844ee;}.stb-side.stb-custom-container {background: #f844ee;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f844ee', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #f844ee 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f844ee), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -o-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -ms-linear-gradient(top,  #f844ee 30%,#504848 90%);background: linear-gradient(#f844ee 30%, #504848 90%);}.stb-side-none.stb-custom-container {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);}.stb-custom_box {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);color: #000000;}.stb-custom-caption_box {background: #f844ee;background: -moz-linear-gradient(top,  #f844ee 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f844ee), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -o-linear-gradient(top,  #f844ee 30%,#504848 90%);background: -ms-linear-gradient(top,  #f844ee 30%,#504848 90%);background: linear-gradient(#f844ee 30%, #504848 90%);color: #ffffff;}.stb-custom-body_box {background: #f7cdf5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7cdf5', endColorstr='#f77df1',GradientType=0 );background: -moz-linear-gradient(top,  #f7cdf5 30%, #f77df1 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#f7cdf5), color-stop(90%,#f77df1));background: -webkit-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -o-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: -ms-linear-gradient(top,  #f7cdf5 30%,#f77df1 90%);background: linear-gradient(#f7cdf5 30%, #f77df1 90%);color: #000000;}.stb-border.stb-download-container {border: 1px none #65ADFE;}.stb-side.stb-download-container {background: #65ADFE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65ADFE', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #65ADFE 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#65ADFE), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -o-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -ms-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: linear-gradient(#65ADFE 30%, #504848 90%);}.stb-side-none.stb-download-container {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);}.stb-download_box {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);color: #000000;}.stb-download-caption_box {background: #65ADFE;background: -moz-linear-gradient(top,  #65ADFE 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#65ADFE), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -o-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: -ms-linear-gradient(top,  #65ADFE 30%,#504848 90%);background: linear-gradient(#65ADFE 30%, #504848 90%);color: #FFFFFF;}.stb-download-body_box {background: #DFF0FF;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFF0FF', endColorstr='#2e7cb9',GradientType=0 );background: -moz-linear-gradient(top,  #DFF0FF 30%, #2e7cb9 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#DFF0FF), color-stop(90%,#2e7cb9));background: -webkit-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -o-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: -ms-linear-gradient(top,  #DFF0FF 30%,#2e7cb9 90%);background: linear-gradient(#DFF0FF 30%, #2e7cb9 90%);color: #000000;}.stb-border.stb-grey-container {border: 1px none #BBBBBB;}.stb-side.stb-grey-container {background: #BBBBBB;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BBBBBB', endColorstr='#6e6e6e',GradientType=0 );background: -moz-linear-gradient(top,  #BBBBBB 30%, #6e6e6e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#BBBBBB), color-stop(90%,#6e6e6e));background: -webkit-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -o-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -ms-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: linear-gradient(#BBBBBB 30%, #6e6e6e 90%);}.stb-side-none.stb-grey-container {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);}.stb-grey_box {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);color: #000000;}.stb-grey-caption_box {background: #BBBBBB;background: -moz-linear-gradient(top,  #BBBBBB 30%, #6e6e6e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#BBBBBB), color-stop(90%,#6e6e6e));background: -webkit-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -o-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: -ms-linear-gradient(top,  #BBBBBB 30%,#6e6e6e 90%);background: linear-gradient(#BBBBBB 30%, #6e6e6e 90%);color: #FFFFFF;}.stb-grey-body_box {background: #EEEEEE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#ababab',GradientType=0 );background: -moz-linear-gradient(top,  #EEEEEE 30%, #ababab 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#EEEEEE), color-stop(90%,#ababab));background: -webkit-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -o-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: -ms-linear-gradient(top,  #EEEEEE 30%,#ababab 90%);background: linear-gradient(#EEEEEE 30%, #ababab 90%);color: #000000;}.stb-border.stb-info-container {border: 1px none #7AD975;}.stb-side.stb-info-container {background: #7AD975;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7AD975', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #7AD975 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#7AD975), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -o-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -ms-linear-gradient(top,  #7AD975 30%,#504848 90%);background: linear-gradient(#7AD975 30%, #504848 90%);}.stb-side-none.stb-info-container {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);}.stb-info_box {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);color: #000000;}.stb-info-caption_box {background: #7AD975;background: -moz-linear-gradient(top,  #7AD975 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#7AD975), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -o-linear-gradient(top,  #7AD975 30%,#504848 90%);background: -ms-linear-gradient(top,  #7AD975 30%,#504848 90%);background: linear-gradient(#7AD975 30%, #504848 90%);color: #FFFFFF;}.stb-info-body_box {background: #E2F8DE;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E2F8DE', endColorstr='#79b06e',GradientType=0 );background: -moz-linear-gradient(top,  #E2F8DE 30%, #79b06e 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#E2F8DE), color-stop(90%,#79b06e));background: -webkit-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -o-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: -ms-linear-gradient(top,  #E2F8DE 30%,#79b06e 90%);background: linear-gradient(#E2F8DE 30%, #79b06e 90%);color: #000000;}.stb-border.stb-section-container {border: 1px none #2982C5;}.stb-side.stb-section-container {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#2944f2',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #2944f2 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#2944f2));background: -webkit-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -o-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: linear-gradient(#2982C5 30%, #2944f2 90%);}.stb-side-none.stb-section-container {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);}.stb-section_box {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);color: #000000;}.stb-section-caption_box {background: #2982C5;background: -moz-linear-gradient(top,  #2982C5 30%, #2944f2 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#2944f2));background: -webkit-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -o-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#2944f2 90%);background: linear-gradient(#2982C5 30%, #2944f2 90%);color: #FFFFFF;}.stb-section-body_box {background: #2982C5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2982C5', endColorstr='#294ee3',GradientType=0 );background: -moz-linear-gradient(top,  #2982C5 30%, #294ee3 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#2982C5), color-stop(90%,#294ee3));background: -webkit-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -o-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: -ms-linear-gradient(top,  #2982C5 30%,#294ee3 90%);background: linear-gradient(#2982C5 30%, #294ee3 90%);color: #000000;}.stb-border.stb-warning-container {border: 1px none #FE9A05;}.stb-side.stb-warning-container {background: #FE9A05;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FE9A05', endColorstr='#504848',GradientType=0 );background: -moz-linear-gradient(top,  #FE9A05 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FE9A05), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -o-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -ms-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: linear-gradient(#FE9A05 30%, #504848 90%);}.stb-side-none.stb-warning-container {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);}.stb-warning_box {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);color: #000000;}.stb-warning-caption_box {background: #FE9A05;background: -moz-linear-gradient(top,  #FE9A05 30%, #504848 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FE9A05), color-stop(90%,#504848));background: -webkit-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -o-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: -ms-linear-gradient(top,  #FE9A05 30%,#504848 90%);background: linear-gradient(#FE9A05 30%, #504848 90%);color: #FFFFFF;}.stb-warning-body_box {background: #FEFFD5;filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEFFD5', endColorstr='#f0d208',GradientType=0 );background: -moz-linear-gradient(top,  #FEFFD5 30%, #f0d208 90%);background: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FEFFD5), color-stop(90%,#f0d208));background: -webkit-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -o-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: -ms-linear-gradient(top,  #FEFFD5 30%,#f0d208 90%);background: linear-gradient(#FEFFD5 30%, #f0d208 90%);color: #000000;}</style>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<meta name="description" content="K means clustering is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems." />
+<link rel="canonical" href="https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="K Means Clustering Simplified in Python | K Means Algorithm" />
+<meta property="og:description" content="K means clustering is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems." />
+<meta property="og:url" content="https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" />
+<meta property="og:site_name" content="Analytics Vidhya" />
+<meta property="article:publisher" content="https://www.facebook.com/AnalyticsVidhya/" />
+<meta property="article:published_time" content="2021-04-26T12:18:19+00:00" />
+<meta property="og:image" content="https://cdn.analyticsvidhya.com/wp-content/uploads/2019/12/k_means_clustering.jpg" />
+<meta property="og:image:width" content="1020" />
+<meta property="og:image:height" content="520" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@analyticsvidhya" />
+<meta name="twitter:site" content="@analyticsvidhya" />
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="Pranshu Sharma" />
+<meta name="twitter:label2" content="Est. reading time" />
+<meta name="twitter:data2" content="8 minutes" />
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.analyticsvidhya.com/#organization","name":"Analytics Vidhya","url":"https://www.analyticsvidhya.com/","sameAs":["https://www.facebook.com/AnalyticsVidhya/","https://www.linkedin.com/company/analytics-vidhya","https://twitter.com/analyticsvidhya"],"logo":{"@type":"ImageObject","@id":"https://www.analyticsvidhya.com/#logo","inLanguage":"en-US","url":"https://cdn.analyticsvidhya.com/wp-content/uploads/2020/06/Av-logo-138x40-1.jpg","contentUrl":"https://cdn.analyticsvidhya.com/wp-content/uploads/2020/06/Av-logo-138x40-1.jpg","width":138,"height":39,"caption":"Analytics Vidhya"},"image":{"@id":"https://www.analyticsvidhya.com/#logo"}},{"@type":"WebSite","@id":"https://www.analyticsvidhya.com/#website","url":"https://www.analyticsvidhya.com/","name":"Analytics Vidhya","description":"Learn everything about Analytics","publisher":{"@id":"https://www.analyticsvidhya.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.analyticsvidhya.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#primaryimage","inLanguage":"en-US","url":"https://cdn.analyticsvidhya.com/wp-content/uploads/2019/12/k_means_clustering.jpg","contentUrl":"https://cdn.analyticsvidhya.com/wp-content/uploads/2019/12/k_means_clustering.jpg","width":1020,"height":520,"caption":"k means clustering"},{"@type":"WebPage","@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#webpage","url":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/","name":"K Means Clustering Simplified in Python | K Means Algorithm","isPartOf":{"@id":"https://www.analyticsvidhya.com/#website"},"primaryImageOfPage":{"@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#primaryimage"},"datePublished":"2021-04-26T12:18:19+00:00","dateModified":"2021-04-26T12:18:19+00:00","description":"K means clustering is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems.","breadcrumb":{"@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/"]}]},{"@type":"BreadcrumbList","@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.analyticsvidhya.com/"},{"@type":"ListItem","position":2,"name":"K Means Clustering Simplified in Python"}]},{"@type":"Article","@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#article","isPartOf":{"@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#webpage"},"author":{"@id":"https://www.analyticsvidhya.com/#/schema/person/2c5822fec8ba9cb8dddcfdb3a3aba6ce"},"headline":"K Means Clustering Simplified in Python","datePublished":"2021-04-26T12:18:19+00:00","dateModified":"2021-04-26T12:18:19+00:00","mainEntityOfPage":{"@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#webpage"},"wordCount":989,"commentCount":0,"publisher":{"@id":"https://www.analyticsvidhya.com/#organization"},"image":{"@id":"https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#primaryimage"},"thumbnailUrl":"https://cdn.analyticsvidhya.com/wp-content/uploads/2019/12/k_means_clustering.jpg","keywords":["blogathon","K Means Algorithm"],"articleSection":["Algorithm","Beginner","Classification","Clustering","Python","Structured Data","Supervised","Unsupervised"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/#respond"]}]},{"@type":"Person","@id":"https://www.analyticsvidhya.com/#/schema/person/2c5822fec8ba9cb8dddcfdb3a3aba6ce","name":"Pranshu Sharma","image":{"@type":"ImageObject","@id":"https://www.analyticsvidhya.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/c2c163753ee41757ef09e0f5cf55f752?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/c2c163753ee41757ef09e0f5cf55f752?s=96&d=mm&r=g","caption":"Pranshu Sharma"},"url":"https://www.analyticsvidhya.com/blog/author/pranshu0/"}]}</script>
+
+<link rel='dns-prefetch' href='//www.analyticsvidhya.com' />
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<script type="6b3f897a04229929062f4898-text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.analyticsvidhya.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='mediaelement-css' href='https://www.analyticsvidhya.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://www.analyticsvidhya.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.9.2' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.analyticsvidhya.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.6' type='text/css' media='all' />
+<style id='contact-form-7-inline-css' type='text/css'>
+.wpcf7 .wpcf7-recaptcha iframe {margin-bottom: 0;}.wpcf7 .wpcf7-recaptcha[data-align="center"] > div {margin: 0 auto;}.wpcf7 .wpcf7-recaptcha[data-align="right"] > div {margin: 0 0 0 auto;}
+</style>
+<link rel='stylesheet' id='cookie-law-info-css' href='https://www.analyticsvidhya.com/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-law-info-gdpr-css' href='https://www.analyticsvidhya.com/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='stbCoreCSS-css' href='https://www.analyticsvidhya.com/wp-content/plugins/wp-special-textboxes/css/stb-core.css?ver=5.9.109' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='https://www.analyticsvidhya.com/wp-content/plugins/jetpack/css/jetpack.css?ver=10.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wpss-style-css' href='https://www.analyticsvidhya.com/wp-content/plugins/wordpress-simple-survey/assets/build/css/wpss-pkg.min.css?ver=5.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpss-custom-db-style-css' href='https://www.analyticsvidhya.com/wp-content/plugins/wordpress-simple-survey/assets/css/custom-performance.css?ver=5.9.2' type='text/css' media='all' />
+<script type="6b3f897a04229929062f4898-text/javascript" id='jetpack_related-posts-js-extra'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20211209' id='jetpack_related-posts-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" id='cookie-law-info-js-extra'>
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#f0f3f7","border":"#444","border_on":"","button_1_button_colour":"#000","button_1_button_hover":"#000000","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#333333","button_4_as_button":"","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"1","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#000","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https:\/\/www.analyticsvidhya.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.1.1' id='cookie-law-info-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/wordpress-simple-survey/assets/build/js/wpss-pkg.min.js?ver=3.0.0' id='wpss-pkg-js'></script>
+<link rel="https://api.w.org/" href="https://www.analyticsvidhya.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.analyticsvidhya.com/wp-json/wp/v2/posts/78180" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.analyticsvidhya.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.analyticsvidhya.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.9.2" />
+<link rel='shortlink' href='https://www.analyticsvidhya.com/?p=78180' />
+<link rel="alternate" type="application/json+oembed" href="https://www.analyticsvidhya.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.analyticsvidhya.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F&#038;format=xml" />
+<script type="6b3f897a04229929062f4898-text/javascript"><!--
+function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+//-->
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript">/* <![CDATA[ */ jQuery.post("https://www.analyticsvidhya.com/wp-admin/admin-ajax.php", { action: "wmp_update", id: 78180, token: "86ed153bca" }); /* ]]> */</script><style type='text/css'>img#wpstats{display:none}</style>
+<link rel='canonical' href='https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/' />
+</head>
+<body class="av-detail-page">
+<div class="blog-detail-page">
+<div class="overlay"></div>
+<header class="bg-white common-header">
+<div class="container">
+<div class="row">
+<nav class="navbar navbar-expand-lg w-100">
+<a class="navbar-brand" href="https://www.analyticsvidhya.com/blog/">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/logos/av-logo-svg.svg" alt="Analytics Vidhya" />
+</a>
+
+<div id="AvSearchBox">
+<form method="GET" action="https://www.analyticsvidhya.com">
+<div class="col-auto p-0">
+<label class="sr-only" for="inlineFormSearch">search</label>
+<div class="input-group">
+<input name="s" type="text" class="form-control" id="inlineFormSearch" autocomplete="off" placeholder="Search" value="">
+<div class="input-group-prepend" id="CloseSearch">
+<div class="input-group-text">
+<i class="fas fa-times"></i>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<i class="mobile-menu-iocn"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active megamenu-item">
+<a class="nav-link" href="javascript:void(0);">
+ <i class="fas fa-bars mr-2"></i>
+Start Here
+</a>
+<div class="megamenu-row">
+<ul class="menu">
+<li>
+<a target="_blank" href="https://courses.analyticsvidhya.com/courses/Machine-Learning-Certification-Course-for-Beginners?utm_source=blog_navbar&utm_medium=start_here_button">Machine Learning</a>
+</li>
+<li>
+<a target="_blank" href="https://courses.analyticsvidhya.com/courses/getting-started-with-neural-networks?utm_source=blog_navbar&utm_medium=start_here_button">Deep Learning</a>
+</li>
+<li>
+<a target="_blank" href="https://courses.analyticsvidhya.com/courses/Intro-to-NLP?utm_source=blog_navbar&utm_medium=start_here_button">NLP</a>
+</li>
+</ul>
+</div>
+</li>
+<li class="nav-item megamenu-item">
+<a class="nav-link" href="javascript:void(0);">Articles</a>
+<div class="megamenu-row">
+<ul class="menu">
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/guide/?utm_source=blog_navbar&utm_medium=machine_learning_button">Guides</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/machine-learning/?utm_source=blog_navbar&utm_medium=machine_learning_button">Machine Learning</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/deep-learning/?utm_source=blog_navbar&utm_medium=deep_learning_button">Deep Learning</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/nlp/?utm_source=blog_navbar&utm_medium=_button">NLP</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/computer-vision/?utm_source=blog_navbar&utm_medium=article_button">Computer Vision</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/data-visualization/?utm_source=blog_navbar&utm_medium=_button">Data Visualization</a>
+</li>
+<li>
+<a href="https://www.analyticsvidhya.com/blog/category/career/?utm_source=blog_navbar&utm_medium=career_button">Careers</a>
+</li>
+<li>
+<a href="javascript:void(0);">More</a>
+<div class="megadrop megadrop-item-link">
+<a href="https://www.analyticsvidhya.com/blog/category/infographics/?utm-source=blog-navbar">Infographics</a>
+<a target="_blank" href="https://jobsnew.analyticsvidhya.com/?utm-source=blog-navbar">Jobs</a>
+<a href="https://www.analyticsvidhya.com/blog/category/podcast/?utm-source=blog-navbar">Podcasts</a>
+<a target="_blank" href="https://courses.analyticsvidhya.com/courses/ebook-machine-learning-simplified?utm_source=bolg-navbar&utm_medium=homepage&utm_campaign=ebook">E-Books</a>
+<a target="_blank" href="https://www.analyticsvidhya.com/corporate/?utm-source=blog-navbar">For Companies</a>
+<a target="_blank" href="https://www.analyticsvidhya.com/datahack-summit-2019/?utm-source=blog-navbar">Datahack Summit</a>
+<a target="_blank" href="https://dsat.analyticsvidhya.com/?utm-source=blog-navbar">DSAT</a>
+<a href="https://www.analyticsvidhya.com/glossary-of-common-statistics-and-machine-learning-terms/?utm-source=blog-navbar">Glossary</a>
+<a target="_blank" href="https://www.analyticsvidhya.com/blog-archive/?utm-source=blog-navbar">Archive</a>
+</div>
+</li>
+<a target="_blank" href="https://editor.analyticsvidhya.com" class="btn btn-info text-white"> Write an Article</a>
+</ul>
+</div>
+</li>
+<li class="nav-item megamenu-item">
+<a class="nav-link" href="javascript:void(0);">Courses</a>
+<div class="megamenu-row">
+<ul class="menu">
+<li>
+<a target="_blank" href="https://blackbelt.analyticsvidhya.com/plus?utm_source=blog_navbar&utm_medium=blackbelt_button">Certified AI & ML BlackBelt Plus</a>
+</li>
+<li>
+<a target="_blank" href="https://ascendpro.analyticsvidhya.com/?utm_source=blog_navbar&utm_medium=ascend_pro_button">Ascend Pro</a>
+</li>
+<li>
+<a target="_blank" href="https://bootcamp.analyticsvidhya.com/?utm_source=blog_navbar&utm_medium=bootcamp_button">Data Science Immersive Bootcamp</a>
+</li>
+<a target="_blank" href="https://courses.analyticsvidhya.com/collections?utm_source=blog_navbar&utm_medium=all_courses_button" class="btn btn-info text-white"> All Courses</a>
+</ul>
+</div>
+</li>
+<li class="nav-item">
+<a target="_blank" class="nav-link" href="https://datahack.analyticsvidhya.com/contest/data-science-blogathon-21/?utm_source=blog&utm_medium=nav_bar&utm_campaign=blogathon21">Blogathon</a>
+</li>
+</ul>
+
+<div class="form-inline navbar-right">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="#" id="AvSearchBoxBtn">
+<i class="fas fa-search"></i>
+</a>
+</li>
+<li class="nav-item dropdown" style="cursor:pointer">
+<a class="nav-link tooltip-light dropdown-toggle" href="javascript:void(0);" id="dropdownWriteArticle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24">
+<path d="M5.51151515,0.0307070707 L14.5547475,0.0307070707 C17.0157576,0.0307070707 19.1119192,1.68 19.7967677,3.92565657 L18.0993939,5.62262626 L18.0993939,5.50868687 C18.0993939,3.55515152 16.5082828,1.9640404 14.5547475,1.9640404 L5.51151515,1.9640404 C3.56040404,1.9640404 1.96727273,3.55757576 1.96727273,5.50868687 L1.96727273,18.5175758 C1.96727273,20.4715152 3.5579798,22.0626263 5.51151515,22.0626263 L14.5547475,22.0626263 C16.5082828,22.0626263 18.0993939,20.4715152 18.0993939,18.5175758 L18.0993939,15.6529293 L20.0327273,13.719596 L20.0327273,18.5175758 C20.0327273,21.5272727 17.5640404,23.9955556 14.5547475,23.9955556 L5.51151515,23.9955556 C2.49979798,23.9955556 0.0335353535,21.5292929 0.0335353535,18.5175758 L0.0335353535,5.50868687 C0.0335353535,2.49454545 2.49737374,0.0307070707 5.51151515,0.0307070707 Z M23.2674747,4.78383838 L22.020202,3.53212121 L12.9688889,12.5777778 L11.6484848,17.0868687 L16.1583838,15.7672727 L25.2056566,6.7220202 L23.9579798,5.46989899 L16.6464646,12.7781818 L15.9547475,12.0913131 L23.2674747,4.78383838 Z M4.83919192,16.5030303 L10.4743434,16.5030303 L9.90868687,18.4367677 L4.83919192,18.4367677 L4.83919192,16.5030303 Z M4.83919192,11.0476768 L12.6723232,11.0476768 L11.8222222,11.8977778 L11.5050505,12.9810101 L4.83919192,12.9810101 L4.83919192,11.0476768 Z M4.83919192,5.59232323 L15.2246465,5.59232323 L15.2246465,7.52606061 L4.83919192,7.52606061 L4.83919192,5.59232323 Z" />
+</svg>
+</a>
+<div class="dropdown-menu dropdown-menu-right additional-dropdown" aria-labelledby="dropdownWriteArticle">
+<a class="dropdown-item" href="https://editor.analyticsvidhya.com">Write an Article</a>
+<a class="dropdown-item" href="https://www.analyticsvidhya.com/creators-club/?utm-medium=blog-navbar&utm_source=creator_club_button">Creators Club</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link text-blue header-sign-in" href="#">Sign in</a>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-blue text-white header-join-now" href="#">Join Now</a>
+</li>
+
+<li class="nav-item dropdown header-logged-in" style="display: none;">
+<span class="avatar-placeholder dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<em class="login-short-name"></em>
+
+<img src="" class="login-header-user-image-dropdown-small rounded-circle d-none" alt="user.profilename" />
+</span>
+<div class="dropdown-menu shadow-sm user-info-dropdown py-0 border-0 dropdown-menu-right" aria-labelledby="navbarDropdown">
+<div class="card border-0">
+<div class="card-header border-0">
+<span class="avatar-placeholder">
+<em class="d-none login-short-name"></em>
+<img src="" alt="" class="login-header-user-image-dropdown" />
+</span>
+<h6 class="card-title text-center text-truncate login-header-user-name-dropdown"></h6>
+<small class="text-truncate d-block text-center login-header-user-email-dropdown"></small>
+</div>
+<div class="card-body">
+<a href="https://id.analyticsvidhya.com/accounts/profile/" class="btn btn-outline-light px-4">Manage your AV Account</a>
+<a class="dropdown-item" href="https://datahack.analyticsvidhya.com/user/?utm-source=blog-navbar">My Hackathons</a>
+<a class="dropdown-item" href="https://profile.analyticsvidhya.com/accounts/bookmarks/">My Bookmarks</a>
+<a class="dropdown-item" href="https://courses.analyticsvidhya.com/enrollments/?utm-source=blog-navbar">My Courses</a>
+<a class="dropdown-item" href="https://jobsnew.analyticsvidhya.com/jobs/myactive/?utm-source=blog-navbar">My Applied Jobs</a>
+</div>
+<div class="card-footer">
+<a href="https://id.analyticsvidhya.com">Sign Out</a>
+</div> </div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="overlay-menu"></div>
+</header>
+<section id="avFlashSale" class="py-1 alert alert-warning alert-dismissible fade show m-0 rounded-0" style="display:none;" role="alert">
+<div class="container">
+<div class="row">
+<div class="av-sale-content w-100">
+<p></p>
+<a target="_blank" id="hrefId" class="btn btn-light ml-1"></a>
+<div id="clockdiv" style="display:none;">
+<span>
+<h4 class="days" id="day"></h4>
+<sup>D</sup>
+</span>
+<span>
+<h4 class="hours" id="hour"></h4>
+<sup>H</sup>
+</span>
+<span>
+<h4 class="minutes" id="minute"></h4>
+<sup>M</sup>
+</span>
+<span>
+<h4 class="seconds" id="second"></h4>
+<sup>S</sup>
+</span>
+</div>
+</div>
+<button type="button" class="close ml-auto py-1" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+</div>
+</section>
+<section class="breadcrumb-blog">
+<div class="container">
+<div class="row">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb pl-0">
+<li class="breadcrumb-item"><a href="https://www.analyticsvidhya.com/blog/">Home</a></li>
+</ol>
+</nav>
+</div>
+</div>
+</section>
+<header class="bg-white header-2">
+<div class="container">
+<div class="row">
+<nav class="navbar navbar-expand-lg w-100 p-0">
+<div class="nav nav-tabs mr-auto" id="nav-tab" role="tablist">
+<a class="nav-link login-required" id="interview-questions-tab" data-toggle="tab" href="#interview-questions" role="tab" aria-controls="interview-questions" aria-selected="true">Interview Questions</a>
+<a class="nav-link login-required" id="related-videos-tab" data-toggle="tab" href="#related-videos" role="tab" aria-controls="related-videos" aria-selected="false">Related Videos</a>
+<a class="nav-link login-required" id="related-articles-tab" data-toggle="tab" href="#related-articles" role="tab" aria-controls="related-articles" aria-selected="false">Related Articles</a>
+<a class="nav-link login-required" id="free-courses-tab" data-toggle="tab" href="#free-courses" role="tab" aria-controls="free-courses" aria-selected="false">Free Courses</a>
+</div>
+
+<div class="form-inline navbar-right">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="#">
+<i class="fas fa-search" id="AvSearchBoxBtn"></i>
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://editor.analyticsvidhya.com/">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/icon/write-article.svg" class="icon-img" alt="write article" />
+</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-blue header-sign-in" href="#">Sign in</a>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-blue text-white header-join-now" href="#" class="header-join-now">Join Now</a>
+</li>
+
+<li class="nav-item dropdown header-logged-in" style="display: none;">
+<span class="avatar-placeholder dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<em class="login-short-name"></em>
+
+<img src="" class="login-header-user-image-dropdown-small rounded-circle d-none" alt="user.profilename" />
+</span>
+<div class="dropdown-menu shadow-sm user-info-dropdown py-0 border-0 dropdown-menu-right" aria-labelledby="navbarDropdown">
+<div class="card border-0">
+<div class="card-header border-0">
+<span class="avatar-placeholder">
+<em class="d-none login-short-name" style="width:100%;flex:0 0 auto;text-align:center;"></em>
+<img src="" alt="" class="login-header-user-image-dropdown" />
+</span>
+<h6 class="card-title text-center text-truncate login-header-user-name-dropdown"></h6>
+<small class="text-truncate d-block text-center login-header-user-email-dropdown"></small>
+</div>
+<div class="card-body">
+<a href="https://id.analyticsvidhya.com/accounts/profile/" class="btn btn-outline-light px-4">Manage your AV Account</a>
+<a class="dropdown-item" href="https://datahack.analyticsvidhya.com/user/?utm-source=blog-navbar">My Hackathons</a>
+<a class="dropdown-item" href="https://profile.analyticsvidhya.com/accounts/bookmarks/">My Bookmarks</a>
+<a class="dropdown-item" href="https://courses.analyticsvidhya.com/enrollments/?utm-source=blog-navbar">My Courses</a>
+<a class="dropdown-item" href="https://jobsnew.analyticsvidhya.com/jobs/myactive/?utm-source=blog-navbar">My Applied Jobs</a>
+</div>
+<div class="card-footer">
+<a href="https://id.analyticsvidhya.com">Sign Out</a>
+</div> </div>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+</header>
+<main class="w-100 float-left">
+
+<div class="page-header">
+<div class="reading-progress-container">
+<div class="progress-bar"></div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9 pl-0">
+<h1>K Means Clustering Simplified in Python</h1>
+</div>
+<div class="display-content"></div>
+<div class="col-md-3">
+<div id="SocialShare">
+<button type="button">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/icon/pdf.svg" alt="download" class="download-pdf" title="Download PDF" />
+</button>
+<button type="button" class="bookmark bookmark-circle-title"><i class="far fa-bookmark" id="bookmark-article"></i></button>
+<div class="dropdown">
+<button type="button" data-toggle="dropdown" class="dropdown-toggle share" id="socialDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/icon/Share.svg" alt="Share" />
+</button>
+<ul class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="socialDropdownMenu">
+<li>
+<a target="_blank" data-original-title="Facebook" rel="tooltip" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F" class="btn" data-placement="left">
+<i class="fab fa-facebook-f btn btn-facebook"></i>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a target="_blank" data-original-title="Twitter" rel="tooltip" href="http://twitter.com/share?text=K Means Clustering Simplified in Python&url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F" class="btn" data-placement="left">
+<i class="fab fa-twitter btn btn-twitter"></i>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a target="_blank" data-original-title="LinkedIn" rel="tooltip" href="http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F" class="btn" data-placement="left">
+<i class="fab fa-linkedin-in btn btn-linkedin"></i>
+<span>Linkedin</span>
+</a>
+</li>
+<li>
+<a target="_blank" data-original-title="Google+" rel="tooltip" href="https://plus.google.com/share?url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2021%2F04%2Fk-means-clustering-simplified-in-python%2F" class="btn" data-placement="left">
+<i class="fab fa-youtube btn btn-google"></i>
+<span>Youtube</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="publish-info w-100">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/pranshu0/">Pranshu Sharma</a> — April 26, 2021 </div>
+<div class="article-categories">
+<a href="https://www.analyticsvidhya.com/blog/category/algorithm/">Algorithm</a>
+<a href="https://www.analyticsvidhya.com/blog/category/beginner/">Beginner</a>
+<a href="https://www.analyticsvidhya.com/blog/category/classification/">Classification</a>
+<a href="https://www.analyticsvidhya.com/blog/category/clustering/">Clustering</a>
+<a href="https://www.analyticsvidhya.com/blog/category/python-2/">Python</a>
+<a href="https://www.analyticsvidhya.com/blog/category/structured-data/">Structured Data</a>
+<a href="https://www.analyticsvidhya.com/blog/category/supervised/">Supervised</a>
+<a href="https://www.analyticsvidhya.com/blog/category/unsupervised/">Unsupervised</a>
+</div>
+<div class="col-lg-9 col-md-12 col-sm-12 pl-0 pr-0" id="article-start">
+<section class="av-details-page target w-100" id="1">
+<div><em>This article was published as a part of the <a href="https://datahack.analyticsvidhya.com/contest/data-science-blogathon-7/" target="_blank" rel="noopener">Data Science Blogathon</a>.</em></div>
+<h2><b>Overview</b></h2>
+<ul type="disc">
+<li>What Is K Means Clustering</li>
+<li>Implementation of K means Clustering</li>
+<li>WCSS And Elbow Method To find No. Of clusters</li>
+<li>Python Implementation of K means Clustering</li>
+</ul>
+<p class="">
+<p>K means is one of the most popular Unsupervised Machine Learning Algorithms Used for Solving Classification Problems. <i><b>K Means segregates the unlabeled data into various groups, called clusters, based on having similar features, common patterns</b></i>.</p>
+<div class="medium-insert-images">
+<figure><img class="aligncenter" src="https://editor.analyticsvidhya.com/uploads/46668k-means-clustering-algorithm-in-machine-learning.png" alt="K Means Clustering image" width="561" height="283" /></figure>
+</div>
+<h2><b style="font-size: 26px; text-align: left;"> </b></h2>
+<p class=""><b style="font-size: 26px; text-align: left;"> </b></p>
+<h2><b>Table of Contents</b></h2>
+<ol start="1" type="1">
+<li>What Is Clustering</li>
+<li>What Is K Means Algorithm</li>
+<li>Diagrammatic Implementation of KMeans Clustering</li>
+<li>Choosing The Right Number of Cluster</li>
+<li>Python Implementation</li>
+</ol>
+<h2></h2>
+<p><b class="" style="font-size: 26px; text-align: left;">1. What Is Clustering?</b></p>
+<p>Suppose we have N number of Unlabeled Multivariate Datasets of various Animals like Dogs, Cats, birds etc. <i><b>The technique to segregate Datasets into various groups, on basis of having similar features and characteristics, is being called Clustering</b></i>.</p>
+<p>The groups being Formed are being known as Clusters. Clustering Technique is being used in various Field such as Image recognition, Spam Filtering</p>
+<p>Clustering is being used in Unsupervised Learning Algorithm in Machine Learning as<i><b> it can be segregated multivariate data into various groups, without any supervisor, on basis of common pattern hidden inside the datasets.</b></i></p>
+<p class=""><i><b> </b></i></p>
+<p class=""><i><b> </b></i></p>
+<h2><b>2. What Is K Means Algorithm</b></h2>
+<p><i><b>Kmeans Algorithm is an Iterative algorithm that divides a group of n datasets into k subgroups /clusters based on the similarity and their mean distance from the centroid of that particular subgroup/ formed</b></i>.</p>
+<p>K, here is the pre-defined number of clusters to be formed by the Algorithm. If K=3, It means the number of clusters to be formed from the dataset is 3</p>
+<p>Algorithm steps Of K Means</p>
+<p>The working of the K-Means algorithm is explained in the below steps:</p>
+<p><b>Step-1:</b> Select the value of K, to decide the number of clusters to be formed.</p>
+<p><b>Step-2:</b> Select random K points which will act as centroids.</p>
+<p><b>Step-3:</b> Assign each data point, based on their distance from the randomly selected points (Centroid), to the nearest/closest centroid which will form the predefined clusters.</p>
+<p><b>Step-4:</b> place a new centroid of each cluster.</p>
+<p><b>Step-5:</b> Repeat step no.3, which reassign each datapoint to the new closest centroid of each cluster.</p>
+<p><b>Step-6:</b> If any reassignment occurs, then go to step-4 else go to Step 7.</p>
+<p><b>Step-7</b>: FINISH</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><b>3. Diagrammatic Implementation of K Means Clustering</b></h2>
+<p><b>STEP 1:</b>Let&#8217;s choose number k of clusters, i.e., K=2, to segregate the dataset and to put them into different respective clusters. We will choose some random 2 points which will act as centroid to form the cluster.<!--[endif]--></p>
+<p><b>STEP 2:</b> <!--[endif]-->Now we will assign each data point to a scatter plot based on its distance from the closest K-point or centroid. It will be done by drawing a median between both the centroids. Consider the below image:<br />
+<!--[endif]--></p>
+<p><b style="font-size: 14px; text-align: left;">STEP 3: </b>points left side of the line is near to blue centroid, and points to the right of the line are close to the yellow centroid. The left one Form cluster with blue centroid and the right one with the yellow centroid.</p>
+<p class=""><img src="image/png;base64,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" alt="" /><b style="font-size: 14px; text-align: left;">STEP 4:</b>repeat the process by choosing <b>a new centroid</b>. To choose the new centroids, we will find the new center of gravity of these centroids, which is depicted below :</p>
+<p><b style="font-size: 14px; text-align: left;">STEP 5: </b>Next, we will reassign each datapoint to the new centroid. We will repeat the same process as above (using a median line). The yellow data point on the blue side of the median line will be included in the blue cluster</p>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/19873tb6.png" alt="K Means Clustering 2" width="403" height="400" /></figure>
+</div>
+<p><b style="font-size: 14px; text-align: left;">STEP 6: </b>As reassignment has taken place, so we will repeat the above step of finding new centroids.</p>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/38346tb5.png" alt="K Means Clustering step 6" width="403" height="400" /></figure>
+</div>
+<p><b style="font-size: 14px; text-align: left;">STEP 7: </b>We will repeat the above process of finding the center of gravity of centroids, as being depicted below</p>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/49556tb4.png" alt="K Means Clustering step 7" width="403" height="400" /></figure>
+</div>
+<p class=""><b style="font-size: 14px; text-align: left;">STEP 8: </b>After Finding the new centroids we will again draw the median line and reassign the data points, like the above steps.</p>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/35981tb3.png" alt="K Means Clustering step 8" width="403" height="400" /></figure>
+</div>
+<p><b style="font-size: 14px; text-align: left;">STEP 9:</b> <!--[endif]-->We will finally segregate points based on the median line, such that two groups are being formed and no dissimilar point to be included in a single group</p>
+<div class="medium-insert-images">
+<p><!--[endif]--></p>
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/40672tb2.png" alt="K Means Clustering step 9" width="400" height="345" /></figure>
+</div>
+<p>The final Cluster being formed are as Follows</p>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/96395pq.png" alt="Cluster" width="400" height="345" /></figure>
+</div>
+<p class="">
+<h2><b>4. Choosing The Right Number Of Clusters</b></h2>
+<p><i><b>The number of clusters that we choose for the algorithm shouldn&#8217;t be random. Each and Every cluster is formed by calculating and comparing the mean distances of each data points within a cluster from its centroid.</b></i></p>
+<p>We Can Choose the right number of clusters with the help of the Within-Cluster-Sum-of-Squares (WCSS) method.</p>
+<p class="">WCSS Stands for the sum of the squares of distances of the data points in each and every cluster from its centroid.</p>
+<p class="">The main idea is to minimize the distance between the data points and the centroid of the clusters. The process is iterated until we reach a minimum value for the sum of distances.</p>
+<p>&nbsp;</p>
+<h2><b>To find the optimal value of clusters, the elbow method follows the below steps:</b></h2>
+<p>1 Execute the K-means clustering on a given dataset for different K values (ranging from 1-10).</p>
+<p class="">2 For each value of K, calculates the WCSS value.</p>
+<p class="">3 Plots a graph/curve between WCSS values and the respective number of clusters K.</p>
+<p class="">4 The sharp point of bend or a point( looking like an elbow joint ) of the plot like an arm, will be considered as the best/optimal value of K</p>
+<h2></h2>
+<h2><b>5. Python Implementation </b></h2>
+<h4 id="Importing-relevant-libraries">Importing relevant libraries</h4>
+<pre>import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+from sklearn.cluster import KMeans</pre>
+<p class="">
+<h4 id="Loading-the-Data">Loading the Data</h4>
+<pre>data = pd.read_csv('Countryclusters.csv')
+data</pre>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/63374snip1.JPG" alt="data" width="359" height="217" /></figure>
+</div>
+<p class="">
+<h4 id="Plotting-the-data">Plotting the data</h4>
+<pre>plt.scatter(data['Longitude'],data['Latitude'])
+plt.xlim(-180,180)
+plt.ylim(-90,90)
+plt.show()</pre>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/48681download (8).png" alt="plotting data" width="377" height="251" /></figure>
+</div>
+<p class="">
+<h2 id="Selecting-the-feature">Selecting the feature</h2>
+<pre> x = data.iloc[:,1:3] # 1t for rows and second for columns
+x</pre>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/46942snip2.JPG" alt="select feature" width="191" height="228" /></figure>
+</div>
+<p class="">
+<h4 id="Clustering">Clustering</h4>
+<pre>kmeans = KMeans(3)
+means.fit(x)</pre>
+<p class="">
+<h4 id="Clustering-Results">Clustering Results</h4>
+<pre>identified_clusters = kmeans.fit_predict(x)
+identified_clusters</pre>
+<pre>array([1, 1, 0, 0, 0, 2])</pre>
+<pre>data_with_clusters = data.copy()
+data_with_clusters['Clusters'] = identified_clusters 
+plt.scatter(data_with_clusters['Longitude'],data_with_clusters['Latitude'],c=data_with_clusters['Clusters'],cmap='rainbow')</pre>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/73075download (9).png" alt="plot cluster" width="377" height="251" /></figure>
+</div>
+<p class="">
+<h2 id="Trying-different-method-(-to-find-no-.of-clusters-to-be-selected">Trying different method ( to find no .of clusters to be selected)</h2>
+<h4 id="WCSS">WCSS and Elbow Method</h4>
+<pre>wcss=[]
+for i in range(1,7):
+kmeans = KMeans(i)
+kmeans.fit(x)
+wcss_iter = kmeans.inertia_
+wcss.append(wcss_iter)
+
+number_clusters = range(1,7)
+plt.plot(number_clusters,wcss)
+plt.title('The Elbow title')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')</pre>
+<div class="medium-insert-images">
+<figure><img loading="lazy" class="alignnone" src="https://editor.analyticsvidhya.com/uploads/38785download (10).png" alt="cluster" width="403" height="279" /></figure>
+</div>
+<p class="">
+<p class=""><b>we can choose 3 as no. of clusters, this method shows what is the good number of clusters.</b></p>
+<p class="">
+<blockquote><p><b><i>With this, I finish this blog.<br />
+</i></b>Hello Everyone, Namaste<br />
+My name is <a href="https://www.analyticsvidhya.com/blog/2021/04/step-by-step-guide-to-become-a-data-scientist-from-scratch/www.linkedin.com/in/pranshu-sharma-b1a9041a8" target="_blank" rel="noopener noreferrer">Pranshu Sharma</a> and I am a Data Science Enthusiast<br />
+Thank you so much for taking your precious time to read this blog. Feel free to point out any mistake(I’m a learner after all) and provide respective feedback or leave a comment.<br />
+Dhanyvaad!!<br />
+Feedback:<br />
+Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="740406151a071c01404147341319151d185a171b19">[email&#160;protected]</a></p></blockquote>
+<div>
+<div>
+<div>
+<p><strong><em>The media shown in this article are not owned by Analytics Vidhya and is used at the Author’s discretion. </em></strong></p>
+</div>
+</div>
+</div>
+<div id='jp-relatedposts' class='jp-relatedposts'>
+<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div> </section>
+
+<div class="blog-tag-row">
+<a href="https://www.analyticsvidhya.com/blog/tag/blogathon/">blogathon</a><a href="https://www.analyticsvidhya.com/blog/tag/k-means-algorithm/">K Means Algorithm</a> </div>
+</div>
+<div class="col-lg-3 col-md-12 col-sm-12">
+<div class="widget_text display-for-right mb-3 right-sidebar-1 d-none" id="custom_html-5"><div class="textwidget custom-html-widget"><a href="https://blackbelt.analyticsvidhya.com/plus?utm_source=sidebanner&utm_medium=blog-outside-india&utm_campaign=datahour#ReinforceProject" target="_blank" rel="noopener"><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2022/06/full-stack-ds.png"></a></div></div><div class="widget_text banner-section-for-display" id="custom_html-6"><div class="textwidget custom-html-widget"><a href="https://1729.world/?utm_source=analyticsvidhya&utm_medium=blog_side_banner_india" target="_blank" rel="noopener"><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2022/06/1729-2.png"></a></div></div> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="6b3f897a04229929062f4898-text/javascript">
+ $(document).ready(function(){
+    $.get("https://www.analyticsvidhya.com/back-channel/check-country.php", function(data){
+      if (data == "0") 
+        $(".right-sidebar-1").removeClass("d-none");
+      else if (data == "1")
+        $(".right-sidebar-2").removeClass("d-none");
+    });
+});
+</script>
+<div class="detail-page-side-bar change-to-sticky">
+<aside id="navTarget">
+<h6>Table of contents</h6>
+<ul class="toc nav navbar-nav">
+</ul>
+</aside>
+</div>
+</div>
+</div>
+</div>
+</main>
+<section class="bottom-page-cotainer w-100 float-left">
+<div class="container">
+<div class="row">
+<div class="col-lg-9 col-md-12 col-sm-12 flet-gap">
+
+<div class="author-row">
+<h3>About the Author</h3>
+<div class="avatar">
+<img class="img-fluid" src="https://secure.gravatar.com/avatar/c2c163753ee41757ef09e0f5cf55f752?s=500" alt="Pranshu Sharma" />
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+</div>
+<div class="avatar-info">
+<h6><a href="https://www.analyticsvidhya.com/blog/author/pranshu0/">Pranshu Sharma</a></h6>
+<p></p>
+</div>
+</div>
+
+<div class="top-author">
+<h3>Our Top Authors</h3>
+<ul>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/rahul105/'>View Profile</a>" title="Rahul Shah">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/rahul105/"><img src="https://av-identity.s3.amazonaws.com/users/user/bGnsep7nT0GMWuLpkDl15Q.jpg" alt="Rahul Shah" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/sion/'>View Profile</a>" title="Sion Chakrabarti">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/sion/"><img src="https://av-identity.s3.amazonaws.com/users/user/R7HrsWl1QrGRiw_e9m4fDA.jpg" alt="Sion Chakrabarti" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/chirag676/'>View Profile</a>" title="CHIRAG GOYAL">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/chirag676/"><img src="https://av-identity.s3.amazonaws.com/users/user/ZcU4ALTFT96MVCzfiGuhsQ.jpeg" alt="CHIRAG GOYAL" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/barney6/'>View Profile</a>" title="Barney Darlington">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/barney6/"><img src="https://av-identity.s3.amazonaws.com/users/user/aM3WrxdNSTGLg7LoqX-q0w.png" alt="Barney Darlington" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/arnab1408/'>View Profile</a>" title="Arnab Mondal">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/arnab1408/"><img src="https://av-identity.s3.amazonaws.com/users/user/a4ByfUyoQRmdGzLpBzHVLw.jpeg" alt="Arnab Mondal" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/suvojit3/'>View Profile</a>" title="Suvojit Hore">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/suvojit3/"><img src="https://av-identity.s3.amazonaws.com/users/user/zy4FL_yyQlG4PkWcyGYvhw.jpg" alt="Suvojit Hore" /></a>
+</li>
+<li class="av-pop" tabindex="0" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<a href='https://www.analyticsvidhya.com/blog/author/shanthababu/'>View Profile</a>" title="Shanthababu Pandian">
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/shanthababu/"><img src="https://av-identity.s3.amazonaws.com/users/user/1l1u7y8ORvuMMQlNitds9Q.jpg" alt="Shanthababu Pandian" /></a>
+</li>
+<li>
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/remove-image/user4.png" alt="Analytics Vidhya" />
+<div class="overly-item">
+<a href="https://www.analyticsvidhya.com/blog/creators/?utm-medium=blog-footer&utm_source=top-authors" class="text-small">view more</a>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="download-app">
+<div class="download-row">
+<h3>
+Download
+<span>Analytics Vidhya App for the Latest blog/Article</span>
+</h3>
+<div class="download-icon">
+<a rel="nofollow" href="https://play.google.com/store/apps/details?id=com.analyticsvidhya.android" target="_blank">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/images/play_store_icon.svg" alt='play store'>
+</a>
+<a rel="nofollow" href="https://apps.apple.com/us/app/analytics-vidhya/id1470025572" target="_blank">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/images/app_Store_icon.svg" alt='App Store'>
+</a>
+</div>
+</div>
+</div>
+
+<div class="blog-two-container">
+<div class="blog-two-row">
+<div class="col-md-6 float-left">
+<small>Previous Post</small>
+<a href="">
+<span>
+How to check Stationarity of Data in Python </span>
+</a>
+</div>
+<div class="col-md-6 float-left">
+<small>Next Post</small>
+<a href="">
+<span>
+Intuition Behind Correlation &#8211; Definition and It&#8217;s Types </span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-2 col-md-12 col-sm-12 float-left"></div>
+</div>
+</div>
+</section>
+<section id="blog-comments-section" class="w-100 float-left pt-4 pb-4">
+<div class="container">
+<div class="row">
+<section id="blog-comments-section" class="av-comment-section">
+<div class="container">
+<div class="row">
+<div id="respond" class="av-comment-respond">
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small>Your email address will not be published. Required fields are marked *</small></h3> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2021/04/k-means-clustering-simplified-in-python/#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://www.analyticsvidhya.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><div class="form-row"><div class="form-group col-sm-12"><textarea id="comment" name="comment" class="form-control" placeholder="Comment"></textarea></div><div class="form-group col-md-6"><input id="author" name="author" type="text" class="form-control" placeholder="Name*"></div>
+<div class="form-group col-md-6"><input id="email" name="email" type="email" class="form-control" placeholder="Email*"></div>
+<div class="form-group col-sm-12"><input id="url" name="url" type="text" class="form-control" placeholder="Website"></div>
+<p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p class="form-submit"></div><button type="submit" class="btn btn-blue px-2">Submit</button> <input type='hidden' name='comment_post_ID' value='78180' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="7085a61b85" /></p><p style="display: none !important;"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="238" /><script type="6b3f897a04229929062f4898-text/javascript">document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="top-resources">
+<div class="container">
+<h2 class="heaidng-2 text-center w-100 mb-5">Top Resources</h2>
+<div class="row">
+<div class="col-md-6 col-lg-3 col-sm-12">
+<div class="card">
+<a href="https://www.analyticsvidhya.com/blog/2021/08/python-tutorial-working-with-csv-file-for-data-science/">
+<div class="image-card">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/08/Basic-Concepts-of-Object-Oriented-Programming-in-Python.jpg" class="card-img-top" alt="">
+</div>
+<div class="card-body">
+<p class="card-text">Python Tutorial: Working with CSV file for Data Science</p>
+</div>
+</a>
+<div class="card-footer">
+<span>
+<div class="av-crown">
+<a href="https://www.analyticsvidhya.com/creators-club/" data-toggle="tooltip" data-placement="bottom" title="Analytics Vidhya Creators' Club Member" target="_blank">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/others/av-crown.svg" alt="crown icon" />
+</a>
+</div>
+<a href="https://www.analyticsvidhya.com/blog/author/harikabonthu96/">
+Harika Bonthu - </span>
+</a>
+<span class="text-uppercase">Aug 21, 2021</span>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 col-sm-12">
+<div class="card">
+<a href="https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/">
+<div class="image-card">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2017/09/support-vector.png" class="card-img-top" alt="">
+</div>
+<div class="card-body">
+<p class="card-text">Understanding Support Vector Machine(SVM) algorithm from examples (along with code)</p>
+</div>
+</a>
+<div class="card-footer">
+<span>
+<a href="https://www.analyticsvidhya.com/blog/author/sunil-ray/">
+Sunil Ray - </span>
+</a>
+<span class="text-uppercase">Sep 13, 2017</span>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 col-sm-12">
+<div class="card">
+ <a href="https://www.analyticsvidhya.com/blog/2020/10/lets-improve-the-model-accuracy-of-imbalanced-covid-19-mortality-prediction-using-generative-adversarial-networks-gan-based-oversampling-technique/">
+<div class="image-card">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/02/type_of_neural_networks.png" class="card-img-top" alt="">
+</div>
+<div class="card-body">
+<p class="card-text">Boost Model Accuracy of Imbalanced COVID-19 Mortality Prediction Using GAN-based..</p>
+</div>
+</a>
+<div class="card-footer">
+<span>
+<a href="https://www.analyticsvidhya.com/blog/author/thilakadiboina/">
+Bala Gangadhar Thilak Adiboina - </span>
+</a>
+<span class="text-uppercase">Oct 07, 2020</span>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 col-sm-12">
+<div class="card">
+<a href="https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/">
+<div class="image-card">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/06/AUC-ROC-curve-1.png" class="card-img-top" alt="">
+</div>
+<div class="card-body">
+<p class="card-text">AUC-ROC Curve in Machine Learning Clearly Explained</p>
+</div>
+</a>
+<div class="card-footer">
+<span>
+<a href="https://www.analyticsvidhya.com/blog/author/aniruddha/">
+Aniruddha Bhandari - </span>
+</a>
+<span class="text-uppercase">Jun 16, 2020</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="tab-content-modal">
+<div class="tab-header w-100 bg-light">
+<div class="container">
+<div class="row">
+<div class="card border-0 w-100">
+<div class="card-header border-0 w-100">
+<h2 class="card-title d-flex">
+<span id="headerHeading"></span>
+<button type="button" class="tabs-close btn px-2 ml-auto p-0 m-0">
+<span aria-hidden="true" class="close" aria-label="Close">&times;</span>
+</button>
+</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="tab-content w-100" id="nav-tabContent">
+<div class="tab-pane fade show active" id="interview-questions" role="tabpanel" aria-labelledby="interview-questions-tab">
+<div class="card w-100 border-0">
+<div id="interview-questions-display"></div>
+</div>
+</div>
+<div class="tab-pane fade" id="related-videos" role="tabpanel" aria-labelledby="related-videos-tab">
+<div class="card w-100 border-0 Videos-listing">
+<div id="related-videos-display"></div>
+</div>
+</div>
+<div class="tab-pane fade" id="related-articles" role="tabpanel" aria-labelledby="related-articles-tab">
+<div class="card w-100 border-0 ">
+<div id="related-articles-display"></div>
+</div>
+</div>
+<div class="tab-pane fade" id="free-courses" role="tabpanel" aria-labelledby="free-courses-tab">
+<div class="card w-100 border-0 Videos-listing">
+<div id="free-courses-display"></div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12">
+<a href="https://www.analyticsvidhya.com/">
+<img src="https://av-public-assets.s3.ap-south-1.amazonaws.com/logos/AV_logo_wite.png" alt='Analytics Vidhya' width="85%">
+</a>
+<div class="download-av-app">
+<h6 class="d-flex align-items-center">Download App</h6>
+<a rel="nofollow" href="https://play.google.com/store/apps/details?id=com.analyticsvidhya.android" target="_blank">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/images/play_store_icon.svg" alt='play store'>
+</a>
+<a rel="nofollow" href="https://apps.apple.com/us/app/analytics-vidhya/id1470025572" target="_blank">
+<img src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/images/app_Store_icon.svg" alt='App Store'>
+</a>
+</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-12">
+<div class="av-links">
+<ul>
+<li>
+<h6>Analytics Vidhya</h6>
+<a href="https://www.analyticsvidhya.com/about/">About Us</a>
+<a href="https://www.analyticsvidhya.com/team/">Our Team</a>
+<a href="https://www.analyticsvidhya.com/careers/">Careers</a>
+<a href="https://www.analyticsvidhya.com/contact/">Contact us</a>
+</li>
+<li>
+<h6>Data Scientists</h6>
+<a href="https://www.analyticsvidhya.com/blog/">Blog</a>
+<a href="https://datahack.analyticsvidhya.com/">Hackathon</a>
+<a href="https://discuss.analyticsvidhya.com/">Discussions</a>
+<a href="https://www.analyticsvidhya.com/jobs/">Apply Jobs</a>
+</li>
+<li>
+<h6>Companies</h6>
+<a href="https://www.analyticsvidhya.com/corporate/">Post Jobs</a>
+<a href="https://courses.analyticsvidhya.com/">Trainings</a>
+<a href="https://datahack.analyticsvidhya.com/">Hiring Hackathons</a>
+<a href="https://www.analyticsvidhya.com/contact/">Advertising</a>
+</li>
+<li>
+<h6>Visit us</h6>
+<div class="av-get-social">
+<a rel="nofollow" href="https://www.facebook.com/AnalyticsVidhya/" target="_blank" class="social-visit fb mr-2">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a rel="nofollow" href="https://www.linkedin.com/company/analytics-vidhya/" target="_blank" class="social-visit in mr-2">
+<i class="fab fa-linkedin-in"></i>
+</a>
+<a rel="nofollow" href="https://www.youtube.com/channel/UCH6gDteHtH4hg3o2343iObA" target="_blank" class="social-visit utub mr-2">
+<i class="fab fa-youtube"></i>
+</a>
+<a rel="nofollow" href="https://twitter.com/analyticsvidhya" target="_blank" class="social-visit tw mr-2">
+<i class="fab fa-twitter"></i>
+</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-link-bottom">
+<div class="container">
+<div class="row">
+<div class="mr-auto">
+<p>© Copyright 2013-2022 Analytics Vidhya.</p>
+</div>
+<div class="ml-auto">
+<a href="https://www.analyticsvidhya.com/privacy-policy/" target="_blank">Privacy Policy</a>
+<a href="https://www.analyticsvidhya.com/terms/" target="_blank">Terms of Use</a>
+<a href="https://www.analyticsvidhya.com/refund-policy/" target="_blank">Refund Policy</a>
+</div>
+</div>
+</div>
+</div>
+
+</footer>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies on Analytics Vidhya websites to deliver our services, analyze web traffic, and improve your experience on the site. By using Analytics Vidhya, you agree to our <a href="https://www.analyticsvidhya.com/privacy-policy/">Privacy Policy</a> and <a href="https://www.analyticsvidhya.com/terms/">Terms of Use</a>.<a role='button' data-cli_action="accept" id="cookie_action_close_header" class="medium cli-plugin-button cli-plugin-main-button cookie_action_close_header cli_action_button">Accept</a></span></div><div id="cookie-law-info-again" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy &amp; Cookies Policy</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+<div class="cli-modal-dialog" role="document">
+<div class="cli-modal-content cli-bar-popup">
+<button type="button" class="cli-modal-close" id="cliModalClose">
+<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+<span class="wt-cli-sr-only">Close</span>
+</button>
+<div class="cli-modal-body">
+<div class="cli-container-fluid cli-tab-container">
+<div class="cli-row">
+<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+<div class="cli-privacy-overview">
+<h4>Privacy Overview</h4> <div class="cli-privacy-content">
+<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+</div>
+<a class="cli-privacy-readmore" aria-label="Show more" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a> </div>
+</div>
+<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+<div class="cli-tab-section">
+<div class="cli-tab-header">
+<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+Necessary </a>
+<div class="wt-cli-necessary-checkbox">
+<input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked="checked" />
+<label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+</div>
+<span class="cli-necessary-caption">Always Enabled</span>
+</div>
+<div class="cli-tab-content">
+<div class="cli-tab-pane cli-fade" data-id="necessary">
+<div class="wt-cli-cookie-description">
+Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information. </div>
+</div>
+</div>
+</div>
+<div class="cli-tab-section">
+<div class="cli-tab-header">
+<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+Non-necessary </a>
+<div class="cli-switch">
+<input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked='checked' />
+<label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+</div>
+</div>
+<div class="cli-tab-content">
+<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+<div class="wt-cli-cookie-description">
+Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website. </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cli-modal-footer">
+<div class="wt-cli-element cli-container-fluid cli-tab-container">
+<div class="cli-row">
+<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--> <script type="6b3f897a04229929062f4898-text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+     jQuery(document).ready(function($) {
+        $('#commentform').validate({
+            rules: {
+                author: {
+                    required: true,
+                    minlength: 2
+                },
+
+                email: {
+                    required: true,
+                    email: true
+                },
+
+                comment: {
+                    required: true,
+                    minlength: 20
+                }
+            },
+
+            messages: {
+                author: "Please provide a name",
+                email: "Please enter a valid email address.",
+                comment: "Please fill the required field"
+            },
+
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                element.after(error);
+            }
+
+        });
+    });
+    </script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.analyticsvidhya.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.6' id='contact-form-7-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" id='q2w3_fixed_widget-js-extra'>
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"use_sticky_position":false,"margin_top":55,"margin_bottom":800,"stop_elements_selectors":"","screen_max_width":0,"screen_max_height":0,"widgets":[]}];
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/q2w3-fixed-widget/js/frontend.min.js?ver=6.0.5' id='q2w3_fixed_widget-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/wpcf7-recaptcha/assets/js/wpcf7-recaptcha-controls.js?ver=1.2' id='wpcf7-recaptcha-controls-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" id='google-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7iqfix = {"recaptcha_empty":"Please verify that you are not a robot.","response_err":"wpcf7-recaptcha: Could not verify reCaptcha response."};
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.google.com/recaptcha/api.js?hl=en_US&#038;onload=recaptchaCallback&#038;render=explicit&#038;ver=2.0' id='google-recaptcha-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.13.1' id='jquery-effects-core-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-includes/js/jquery/ui/effect-blind.min.js?ver=1.13.1' id='jquery-effects-blind-js'></script>
+<script type="6b3f897a04229929062f4898-text/javascript" id='wstbLayout-js-extra'>
+/* <![CDATA[ */
+var stbUserOptions = {"mode":"css","cssOptions":{"roundedCorners":true,"mbottom":10,"imgHide":"https:\/\/www.analyticsvidhya.com\/blog\/wp-content\/plugins\/wp-special-textboxes\/images\/minus.png","imgShow":"https:\/\/www.analyticsvidhya.com\/blog\/wp-content\/plugins\/wp-special-textboxes\/images\/plus.png","strHide":"Hide","strShow":"Show"}};
+/* ]]> */
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src='https://www.analyticsvidhya.com/wp-content/plugins/wp-special-textboxes/js/wstb.min.js?ver=5.9.109' id='wstbLayout-js'></script>
+<script src='https://stats.wp.com/e-202224.js' defer type="6b3f897a04229929062f4898-text/javascript"></script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:10.7',blog:'180026056',post:'78180',tz:'5.5',srv:'www.analyticsvidhya.com'} ]);
+	_stq.push([ 'clickTrackerInit', '180026056', '78180' ]);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/js/init.js" type="6b3f897a04229929062f4898-text/javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha256-NXRS8qVcmZ3dOv3LziwznUHPegFhPZ1F/4inU7uC8h0=" crossorigin="anonymous" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script type="6b3f897a04229929062f4898-text/javascript" src="https://automation.analyticsvidhya.com/static/js/getFlashDetailsNew.js" defer></script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+    $.getScript( "https://brahma.analyticsvidhya.com/static/js/events.js" )
+				  .done(function( script, textStatus ) {
+				  })
+				  .fail(function( jqxhr, settings, exception ) {
+				});
+    </script>
+
+<script type="6b3f897a04229929062f4898-text/javascript">
+    
+    var other_clicks = 0;
+    // Side banner clicks
+    $('#sticky1').click(function() {
+        other_clicks = 1;
+        banner_target_url = $(this).find('a').attr('href');
+    	  dataLayer.push({ event : 'datalayer_click', "blog_id" : "","blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" ,"banner_click": "stickybanner1","banner_link_click_href": banner_target_url, "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : ''});
+    });
+    $('#sticky2 a').click(function() {
+        other_clicks = 2
+    	  banner_target_url = $(this).find('a').attr('href');
+    	  dataLayer.push({ event : 'datalayer_click',"blog_id" : "", "blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" ,"banner_click": "stickybanner2","banner_link_click_href": banner_target_url, "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : ''});
+    });
+
+    function datalayer_download_pdf_click() {
+    	dataLayer.push({ event : 'datalayer_click', "blog_id" : "","blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" ,"pdf_click": "true", "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname ,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : ''});
+    	other_clicks = 3;
+    }
+
+    // Bookmark Click
+    function datalayer_bookmark_click()
+    {
+        dataLayer.push({ event : 'datalayer_click', "blog_id" : "","blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" ,"bookmark_click": "true", "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname ,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : ''});
+    }
+    // All Other Clicks
+    $("a").click(function() {
+    	if (other_clicks == 0) {
+    	dataLayer.push({ event : 'datalayer_click', "blog_id" : "","blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" , "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname , "blog_link_click_anchor_text": $(this).text(), "blog_link_click_href": $(this).attr('href')});
+    	}
+    	else {
+    		other_clicks = 0;
+    	}
+    });
+    // Internal Page Visit & Page Categories
+        $(document).ready(function(){
+    var post_categories = 'Algorithm,Beginner,Classification,Clustering,Python,Structured Data,Supervised,Unsupervised';
+    dataLayer.push({ event : 'datalayer_click', "blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" , "blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname , "blog_post_categories": post_categories,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : '' });
+    });
+        // User Login Data Layer
+    function datalayer_user_login()
+    {
+        dataLayer.push({ event : 'datalayer_click', "user_logged_in": "true","blog_page_visit" : "https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/" ,"blog_user_id" : uid ,"blog_user_email" : uemail ,"blog_user_full_name" : ufullname,"blog_user_preferred_name" : upname,"blog_utm_source" : '', "blog_utm_medium" : '' , "blog_utm_campaign" : ''});
+    }
+    </script>
+
+
+<script type="6b3f897a04229929062f4898-text/javascript" src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/js/oidc-client.js" defer></script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+var redirect_uri = 'https://www.analyticsvidhya.com/';
+var authority_id = 'https://id.analyticsvidhya.com/openid';
+var client_o_id = '516577';
+var av_is_signed_in = false;
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript" src="https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/js/id-connect-v2.js" defer></script>
+<script src="https://accounts.google.com/gsi/client" type="6b3f897a04229929062f4898-text/javascript"></script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+var img_path = "https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya";
+var bookmark_post_id = "78180";
+var is_bookmarked = false;
+var uid = "";
+var uemail = "";
+var upname = "";
+var ufullname = "";
+var av_is_signed_in = false;
+var id_login_url = 'https://id.analyticsvidhya.com/auth/login/?next='+$(location).attr('href');
+var id_signup_url = 'https://id.analyticsvidhya.com/auth/signup/?next='+$(location).attr('href');
+
+
+$(document).ready(function(){
+
+//var img_path = "https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya";
+google.accounts.id.initialize({
+					client_id: '429311339129-v51ip59f2utl09dvqd2nfunv44el44nj.apps.googleusercontent.com',
+					callback: handleCredentialResponse
+				});
+mgr.getUser().then(function(user) {
+    // If user was already logged in
+    if (user!==null){
+        mgr.querySessionStatus().then(function(res) {
+        //console.log('Ohhh, its you again');
+        av_is_signed_in = true;
+        // Log the user in
+        user_logged_in(user);
+
+        }).catch(function(err){
+					// Check If User logged in With Google Signon
+            // If user logged out from OP
+            av_is_signed_in = false;
+            user_logged_out();
+            mgr.removeUser();
+        });
+
+    } // End check if the user is not null
+    else{
+        mgr.signinRedirectCallback().then(function(user) {
+            // If user just logged in and redirected to this page
+            //console.log(user.profile.given_name, ' bro, how was login experience?');
+            av_is_signed_in = true;
+            // Call user_logged_in_functions
+            user_logged_in(user);
+        }).catch(function(err) {
+            // If user is NOT logged in
+            //console.log('Logged out');
+            user_logged_out();
+            google.accounts.id.prompt();
+            mgr.signinSilent().then(function(user) {
+                av_is_signed_in = true;
+                //console.log("silent signed in", user);
+                user_logged_in(user);
+            }).catch(function(err) {
+
+				// Check If User logged in With Google Signon
+				av_is_signed_in = false;
+                user_logged_out();
+                google.accounts.id.prompt();
+                console.log("Silentsignin Err");
+                //console.log(err);
+				 });
+        });
+    }
+}).catch(function(err){
+    //console.log('Couldnt get user');
+    user_logged_out();
+    });
+}); // document.ready
+
+// For Google Sign On
+function handleCredentialResponse(callback_data){
+            // get credentials from google and send it for login
+            callback_data['source_platform']='blogs-prod';
+            callback_data['redirect_url'] = window.location.href;//'https://www.analyticsvidhya.com/';
+            callback_data['url'] = window.location.href;
+            callback_data['button_id'] = 1113;
+            $.ajax({
+              url:"https://id.analyticsvidhya.com/automation/google/onetap/blog/login",
+              data: callback_data,
+              method:'post',
+              success: function(response){
+                //console.log(response)
+                payload = JSON.parse(response)
+                av_is_signed_in = true;
+              //  console.log(payload);
+            //    console.log(payload.identityid);
+                 $.ajax({
+  url: "https://www.analyticsvidhya.com/back-channel/check-session.php",
+  method: "POST",
+  data: { "session_key" : payload.identityid },
+  success : function(r){
+  	//console.log(r)
+  }
+});
+    user_logged_in(payload);
+              },
+              error: function(){
+                console.log("error")
+              }
+            })
+          }
+
+// User Login
+function user_logged_in(user)
+{
+    $.ajaxSetup({
+            beforeSend: function (xhr){
+                xhr.setRequestHeader("Authorization","Bearer "+user.access_token);
+             }
+    });//ajaxsetup
+
+   uid = user.profile.sub;
+	 uemail = user.profile.email;
+	 upname = user.profile.preferred_username;
+	 ufullname = user.profile.name;
+    //console.log (user.profile);
+    //Display Username on Header
+    //$(".header-join-now").html("<a href='https://id.analyticsvidhya.com/accounts/profile/' target='_blank'>" + user.profile.preferred_username + "</a>");
+    //$(".header-join-now").html(user.profile.preferred_username);
+    $(".header-join-now").hide();
+    $(".header-sign-in").hide();
+    $(".header-logged-in").show();
+		if (user.profile.picture == undefined)
+		{
+			$(".login-short-name").removeClass("d-none");
+    	$(".login-short-name").html(user.profile.preferred_username.charAt(0).toUpperCase());
+			$(".login-header-user-image-dropdown").addClass("d-none");
+		}
+		else
+		{
+				$(".login-short-name").addClass("d-none");
+				$(".login-header-user-image-dropdown").attr('src',user.profile.picture);
+				$(".login-header-user-image-dropdown-small").attr('src',user.profile.picture);
+				$(".login-header-user-image-dropdown-small").removeClass("d-none");
+		}
+		$(".login-header-user-name-dropdown").html(user.profile.preferred_username);
+    $(".login-header-user-email-dropdown").html(user.profile.email);
+		datalayer_user_login();
+
+		if ($('.coding-window-no-show').length >= 0) {
+      $(".coding-window-no-show").hide();
+      initCodingWindow();
+      $(".coding-window").show();
+    }
+    if ($('.video-show-no-show').length >= 0) {
+        $(".video-show-no-show").hide();
+				$(".video-show").show();
+    }
+
+    if ($('#typing-tutor').length > 0) {
+        $("#typing-tutor").html("<a href='https://typingtutor.analyticsvidhya.com/'>https://typingtutor.analyticsvidhya.com/</a>");
+    }
+    // Check if the article is already bookmarked
+  $.ajax({
+     type:"GET",
+     url:"https://id.analyticsvidhya.com/api/v1/resources/external_save_check?resource_ids=78180",
+     contentType: 'application/json',
+     success: function(data) {
+         if(data.results[0] && data.results[0].is_bookmarked==true)
+            {
+        $("#bookmark-article").removeClass("far").addClass("fas active").attr("title","Remove Bookmark");
+				$(".bookmark-circle-title").addClass("active").attr("title","Remove Bookmark");
+				is_bookmarked = true;
+		    }
+		  else
+		  {
+		    $("#bookmark-article").removeClass("fas").addClass("far").attr("title","Bookmark this story to read later");
+				$(".bookmark-circle-title").removeClass("active").attr("title","Bookmark this story to read later");
+		  }
+     },
+        error: function(data) {
+        data =  JSON.stringify(data);
+//        $(".save-for-later").html(data);
+       }
+    });
+   // End Check if article already Bookmarked
+
+	// If user is logged in give option to bookmark article
+    /*
+        $(".save-for-later").html('<a id="bookmark-article" href="#"><img src="'+img_path+'/custom-design/images/do-bookmark.svg" width="18px" alt="Bookmark this story to read later" title="Bookmark this story to read later" data-toggle="tooltip"></a>');
+				$("#top-av-users-signup").hide();
+				$("#top-av-users-show").show();
+				$("#is_logged_in_brchr").val("1");
+				$(".coding-window-no-show").hide();
+				initCodingWindow();
+				$(".coding-window").show();
+				$(".video-show-no-show").hide();
+				$(".video-show").show();
+				$("#typing-tutor").html("<a href='https://typingtutor.analyticsvidhya.com/'>https://typingtutor.analyticsvidhya.com/</a>");
+				$(".qa-login-req-no-show").hide();
+				$(".qa-login-req").show();
+				$('.qa-login-req').css('visibility','visible');
+				$(".fluffycourse-hide").hide();
+				$(".fluffycourse").show();
+				$(".lock-icon").hide();
+				*/
+                //datalayer_user_login();
+
+			//	quizInit(uid);
+				// Popup Logged in
+			//	$("#popup_logged_in").val("1");
+				//console.log ("H:"+uid);
+			/*	$.getScript( "https://brahma.analyticsvidhya.com/static/js/events.js" )
+				  .done(function( script, textStatus ) {
+				    console.log( "Brahma Loaded" );
+				  })
+				  .fail(function( jqxhr, settings, exception ) {
+						console.log( "Brahma Failed" );
+				});*/
+				//$("#signup").hide();
+				//$("#dwn-brchr").show();
+	// End If user is logged in give option to bookmark article
+			//	console.log (user.profile);
+}
+
+function show_login_links()
+{
+    $(".header-sign-in").attr('href',id_login_url);
+    $(".header-join-now").attr('href',id_signup_url);
+
+}
+
+
+function user_logged_out()
+{
+    //console.log("logged out");
+    $(".header-join-now").show();
+    show_login_links();
+    if ($(".coding-window-no-show").length == 0)
+		{
+			$(".coding-window").before("<a href='https://id.analyticsvidhya.com/auth/login/?next="+$(location).attr('href')+ "?&utm_source=coding-window-blog&source=coding-window-blog'><img src='https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/08/coding-window-noshow.jpg' class='coding-window-no-show'></a>");
+		}
+		$(".coding-window").hide();
+		if ($(".video-show-no-show").length == 0)
+		{
+			$(".video-show").before("<a href='https://id.analyticsvidhya.com/auth/login/?next="+$(location).attr('href')+ "?&utm_source=video-show-blog&source=video-show-blog'><img src='https://cdn.analyticsvidhya.com/wp-content/uploads/2021/02/video-noshow.jpg' class='video-show-no-show'></a>");
+		}
+		$(".video-show").hide();
+
+        if ($('#typing-tutor').length > 0) {
+        $("#typing-tutor").html("<a href='https://id.analyticsvidhya.com/auth/login/?next="+$(location).attr('href')+ "' target='_blank'> <img style='height: 40px;' src='https://cdn.analyticsvidhya.com/wp-content/uploads/2020/12/images.png'/></a>");
+        }
+}
+
+// Bokmark Article
+$('.bookmark').click(function(){
+	if (av_is_signed_in)
+		bookmark_post();
+    else
+        window.location = id_login_url;
+});
+
+$(".download-pdf").click(function(){
+	if (av_is_signed_in)
+	{
+		datalayer_download_pdf_click();
+		window.location = "https://www.analyticsvidhya.com/back-channel/download-pdf.php?pid=78180&next="+$(location).attr('href');
+	}
+	else
+	    window.location = id_login_url;
+});
+
+
+function bookmark_post()
+{
+	event.preventDefault();
+	datalayer_bookmark_click();
+	var bookmark_data = {resource_id:"78180", resource_type:"article",resource_permalink:"",resource_title:"",resource_medium: "blog"};
+ if (is_bookmarked==false) {
+ $.ajax({
+	type:"POST",
+	//dataType:"json",
+	url:"https://id.analyticsvidhya.com/api/v1/resources/external_save",
+	data:JSON.stringify(bookmark_data),
+ contentType: 'application/json',
+	success: function(data) {
+			data =JSON.stringify(data);
+          $("#bookmark-article").addClass("fas").attr("title","Remove Bookmark");
+        	$(".bookmark-circle-title").addClass("active").attr("title","Remove Bookmark");
+        	is_bookmarked=true;
+	},
+		 error: function(data) {
+		 data =  JSON.stringify(data);
+            $("#bookmark-article").removeClass("fas").attr("title","Failed to Bookmark Article");
+            $(".bookmark-circle-title").removeClass("active").attr("title","Failed to Bookmark Article");
+    	}
+ });
+} // end if
+else if (is_bookmarked==true){
+ $.ajax({
+	type:"DELETE",
+	dataType:"json",
+	url:"https://id.analyticsvidhya.com/api/v1/resources/external_save",
+	data:JSON.stringify(bookmark_data),
+ contentType: 'application/json',
+	success: function(data) {
+			data =JSON.stringify(data);
+			$("#bookmark-article").removeClass("fas").attr("title","Bookmark this story to read later");
+			$(".bookmark-circle-title").removeClass("active").attr("title","Bookmark this story to read later");
+			 is_bookmarked=false;
+	},
+		 error: function(data) {
+		 data =  JSON.stringify(data);
+		 $("#bookmark-article").attr("title","Failed to Remove Bookmark");
+		 $(".bookmark-circle-title").attr("title","Failed to Remove Bookmark");
+		}
+ });
+} //end elseif
+}
+
+
+// Top Header Menus Interview Questions / Related Videos / Articles etc
+$(document).ready(function(){
+
+	$('#free-courses-tab').click(function(){
+			 $('#headerHeading').html('Courses');
+		 });
+		 $('#related-articles-tab').click(function(){
+			 $('#headerHeading').html('Articles');
+		 });
+		 $('#related-videos-tab').click(function(){
+			 $('#headerHeading').html('Videos');
+		 });
+		 $('#interview-questions-tab').click(function(){
+			 $('#headerHeading').html('Interview Questions');
+		 });
+
+    $(".login-required").click(function(){
+	   	if (av_is_signed_in==false)
+	   	{
+	   	event.preventDefault();
+	    $(this).removeClass("active");
+	    window.location = "https://id.analyticsvidhya.com/auth/login/?next="+$(location).attr('href');
+	   	}
+	   	else if (av_is_signed_in==true)
+	   	{
+	   	    $('#interview-questions-display').html('<iframe src="https://dsat.analyticsvidhya.com/blog/create/assessment/78180" height="500" width="100%" frameborder="0">');
+ 	   	    $('#related-videos-display').load('https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/top-header-related-videos.php?bid=78180');
+										$('#related-articles-display').load('https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/top-header-related-articles.php?cat=5283,5385,5347,5348,396,5363,5356,5359&exclude=78180');
+										$('#free-courses-display').load('https://www.analyticsvidhya.com/wp-content/themes/analytics-vidhya/top-header-free-courses.php');
+	   	}
+
+	});
+});
+
+function initCodingWindow() {
+	$('.coding-window iframe').each(function() {
+		var src = $(this).data('src');
+		if (!src) {
+			return;
+		}
+		this.src = src;
+	})
+}
+</script>
+
+<div class="modal fade av-video-modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-body">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe id="related-videos-modal-iframe" class="embed-responsive-item" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="6b3f897a04229929062f4898-text/javascript">
+         $(function() {
+               $("#article-start p:nth-of-type(6)").after('<div id="custom_html-7"><div class="textwidget custom-html-widget"><div class="banner-section-for-display"><div class="display-for-right mb-3"><div class="display-img"><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2022/06/blogathon.png" alt="Loading Image"></div><div class="display-content"><h5>Learn | Write | Earn</h5><span>Assured INR 2000 ($26) for every published article!</span><a href="https://datahack.analyticsvidhya.com/contest/data-science-blogathon-21/?utm_source=blog&utm_medium=banner_between_article&utm_campaign=blogathon21" class="btn btn-info" target="_blank" rel="noopener">Register Now</a></div></div></div></div></div>');
+           });
+       </script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+        $(function() {
+             $('#videoModal').on('show.bs.modal', function (e) {
+                  $("#related-videos-modal-iframe").attr('src','https://player.vimeo.com/video/'+$(e.relatedTarget).data('video')+'?autoplay=1');
+                });
+                $('#videoModal').on('hide.bs.modal', function (e) {
+                  $("#related-videos-modal-iframe").attr('src','');
+                });
+         });
+    </script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+    $(function() {
+
+      // Pre Check Comments Form Subscribe Checkboxes
+      $("#subscribe_comments,#subscribe_blog").prop("checked",true);
+      // sidebar Reading progress activatore
+      $(window).on('scroll',function(){
+        var WindowTop = $(window).scrollTop();
+        $('.av-details-page .target').each(function(i){
+          if(WindowTop > $(this).offset().top - 190 &&
+              WindowTop < $(this).offset().top + $(this).outerHeight(true)
+            ){
+              if ($(this).data('tocid'))
+             {
+              $(".h2_toc").removeClass('active');
+              $("#"+$(this).data('tocid')).addClass('active');
+             }
+          }
+        });
+      });
+
+    var i=0;
+    $(".av-details-page").find('h2').each(function() {
+    i=i+1;
+    var item = $(this);
+    var h2id = 'h2_'+i;
+    var h2_toc_id = 'h2_toc_'+i;
+    item.attr('id', h2id);
+    item.attr('data-tocid', h2_toc_id);
+    $(this).addClass("target");
+    var li = $('<li/>');
+   // var a = $('<a/>', {text: item.text(), href: '#' + h2id, title: item.text(),class: 'h2_toc',id:h2_toc_id });
+    var a = $('<a/>', {text: item.text(), href: '#' + h2id, class: 'h2_toc',id:h2_toc_id });
+    a.appendTo(li);
+    $('.toc').append(li);
+  });
+
+  $(".h2_toc").click(function() {
+    $(".h2_toc").removeClass('active');
+    $(this).addClass('active');
+    h2_href = $(this).attr('href');
+    $('html, body').animate({
+        scrollTop: $(h2_href).offset().top-190
+    }, 2000);
+  });
+});
+</script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+        $(document).ready(function(){
+          // Article related navigation link fix
+          var fixmeTop = $('.display-content').offset().top;
+          $(window).scroll(function() {
+            var currentScroll = $(window).scrollTop();
+            if (currentScroll >= fixmeTop) {
+              $('.header-2').addClass('header-2-fixed-top');
+              $('.page-header').addClass('margin-top-fix');
+            } else {
+              $('.header-2').removeClass('header-2-fixed-top');
+              $('.page-header').removeClass('margin-top-fix');
+            }
+          });
+          // Main heading and tabel content of right side fix
+          $(window).scroll(function(){
+            if ($(window).scrollTop() >=320) {
+              $('.page-header').addClass('active');
+              $('.change-to-sticky').addClass('active');
+            }
+            else if($(window).scrollTop() < 320){
+              $('.page-header').removeClass('active');
+              $('.change-to-sticky').removeClass  ('active');
+            }
+          });
+          // Add class for navTab tabsbar content active
+            $( "#nav-tab" ).click(function() {
+            $('.tab-content-modal').addClass('active');
+            $('body').addClass('active');
+          });
+          // Remove class for navTab tabsbar content active
+          $( ".tabs-close" ).click(function() {
+            $('.tab-content-modal').removeClass('active');
+            $('.header-2 .nav-link.active ').removeClass('active');
+            $('body').removeClass('active');
+          });
+
+        });
+      </script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+        // User Reding Progressbar fix
+        $(window).bind('scroll', () => {
+          const scrollHeight = $(document).height() - 100;
+          const scrollPosition = $(window).height() + $(window).scrollTop();
+          let percentageScrolled = Math.round((scrollPosition / scrollHeight) * 100);
+          if (percentageScrolled > 100) percentageScrolled = 100;
+          if ($(window).scrollTop() > 320) {
+            $('.reading-progress-container').addClass('show');
+          }
+        else {
+          $('.reading-progress-container').removeClass('show')
+        }
+          $('.reading-progress-container .progress-bar').css('width', `${percentageScrolled}%`);
+        });
+      </script>
+<script type="6b3f897a04229929062f4898-text/javascript">
+      // Our Top Author popover on mouse hover
+          $(".av-pop").popover({
+            trigger: "manual",
+            html: true,
+            animation: false
+          })
+        .on("mouseenter", function() {
+          var _this = this;
+          $(this).popover("show");
+          $(".popover").on("mouseleave", function() {
+            $(_this).popover('hide');
+          });
+        }).on("mouseleave", function() {
+          var _this = this;
+          setTimeout(function() {
+            if (!$(".popover:hover").length) {
+              $(_this).popover("hide");
+            }
+          }, 100);
+        });
+      </script>
+</div>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6b3f897a04229929062f4898-|49" defer=""></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"71b336068a8f9028","token":"6dc69ea2ec65420db26006e7a2ffc709","version":"2022.6.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
