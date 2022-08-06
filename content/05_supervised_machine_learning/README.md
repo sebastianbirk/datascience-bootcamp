@@ -32,11 +32,23 @@ To get your environment set up, make sure you have Conda installed and on your p
 
 ### 5.5  Link to Data & Notebooks:
 
-Lectures Notebook Day1 - 
-</br >Lectures Notebook Day2 - 
-</br >Classification LAB - 
-</br >Classification datasets -
-</br >Regression LAB - 
-</br >Regression datasets - 
-</br >Classification Solution Notebooks - 
-</br >Regression Solution Notebooks - 
+- *Lecture Notebooks -*<br>
+
+  Day 1 (Regression & Classification basics) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_1_Lecture%20Notes.ipynb <br>
+  Day 2 (Ensemble Models  & Hyperparameter tuning) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_2_Lecture%20Notes.ipynb  
+
+- *Datasets:* <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/datasets/regression/processed <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/datasets/classification/processed
+
+- *Feature Engineered / PreProcessed solution (Part1) from where datasets are considered from* - <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/04_data_preprocessing_%26_feature_engineering/Regression_dataset_preprocessing.ipynb <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/04_data_preprocessing_%26_feature_engineering/Solution_Classification_preprocessing.ipynb
+
+- *LAB Notebooks* - <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Regression_Day1_%26_Day2.ipynb <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Classification_Day1%20%26%20Day2.ipynb
+
