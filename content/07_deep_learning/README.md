@@ -8,6 +8,7 @@ Good introductory courses for deep learning are:
 - The Deeplearning.ai [Deep Learning Specialization](https://deeplearning.ai/courses/deep-learning-specialization/)
 - The Fast.ai [Practical Deep Learning for Coders Course](https://course.fast.ai/)
 - Yann Lecun's [Deep Learning Course at the Center for Data Science of NYU](https://cds.nyu.edu/deep-learning/)
+- Ian Goodfellow's [Deep Learning Book](https://www.deeplearningbook.org/)
 
 ## 7.2 Deep Learning Lab
 
