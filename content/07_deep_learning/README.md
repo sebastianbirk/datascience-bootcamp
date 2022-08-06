@@ -4,7 +4,7 @@
 
 The deep learning introduction presentation is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/07_deep_learning/07_deep_learning.pptx).
 
-Good introductory courses for deep learning are:
+Good introductory resources for deep learning are:
 - The Deeplearning.ai [Deep Learning Specialization](https://deeplearning.ai/courses/deep-learning-specialization/)
 - The Fast.ai [Practical Deep Learning for Coders Course](https://course.fast.ai/)
 - Yann Lecun's [Deep Learning Course at the Center for Data Science of NYU](https://cds.nyu.edu/deep-learning/)
