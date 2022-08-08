@@ -1,0 +1,1 @@
+- Contrastive Learning: https://towardsdatascience.com/understanding-contrastive-learning-d5b19fd96607
