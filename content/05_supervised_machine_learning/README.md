@@ -11,30 +11,44 @@ Depending on the characteristics of target variable, it can be a classification 
 
 
 ### 5.2 **What you will learn**
-  - Understand the fundamental and theoretical differences between parametric and non-parametric models, and why you might opt for one over the other.
   - Discover how a machine can learn a concept and generalize its understanding to new data
+  - Use the Scikit-Learn library to deploy ready-built models, train them, and see results in just a few lines of code
   - Implement several well-known supervised learning algorithms from scratch - both for Regression and Classification
+  - Evaluate your models to ensure they can be trusted! 
+  - Use cross validation and hyper-parameter optimization to get the best possible version of each model for your specific application.
 
 
 ### 5.3 **Prerequisites**
 This session assumes familiarity with Jupyter Lab and basics of pandas, matplotlib and numpy.
-</br >The libraries Pandas, Scikit-learn and MatplotLib must be installed.
+</br > The libraries Pandas, Scikit-learn, Xgboost and MatplotLib must be installed.
 
 ### 5.4 **Getting started**
 To get your environment set up, make sure you have Conda installed and on your path. Then simply run the following:
 
 - To enter the directory: **cd datascience-bootcamp**
-- To extract recent files from github: **git reset --hard**  and then  **git pull**
-- To activate your environment in a Unix environment:   **conda activate datascience-bootcamp**
+- To extract recent files from github: **git pull**
+- To activate your environment in a Unix environment:  **conda activate datascience-bootcamp**
 - To launch Jupyter Lab: **jupyter lab --no-browser**
 
 ### 5.5  Link to Data & Notebooks:
 
-Lectures Notebook Day1 - 
-</br >Lectures Notebook Day2 - 
-</br >Classification LAB - 
-</br >Classification datasets -
-</br >Regression LAB - 
-</br >Regression datasets - 
-</br >Classification Solution Notebooks - 
-</br >Regression Solution Notebooks - 
+- *Lecture Notebooks -*<br>
+
+  Day 1 (Regression & Classification basics) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_1_Lecture%20Notes.ipynb <br>
+  Day 2 (Ensemble Models  & Hyperparameter tuning) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_2_Lecture%20Notes.ipynb  
+
+- *Datasets:* <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/datasets/regression/processed <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/tree/main/content/datasets/classification/processed
+
+- *Feature Engineered / PreProcessed solution (Part1) from where datasets are considered from* - <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/04_data_preprocessing_%26_feature_engineering/Regression_dataset_preprocessing.ipynb <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/04_data_preprocessing_%26_feature_engineering/Solution_Classification_preprocessing.ipynb
+
+- *LAB Notebooks* - <br>
+
+  Regression - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Regression_Day1_%26_Day2.ipynb <br>
+  Classification - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Classification_Day1%20%26%20Day2.ipynb
+
