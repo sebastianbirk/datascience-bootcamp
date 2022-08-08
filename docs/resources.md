@@ -1,1 +1,2 @@
 - Contrastive Learning: https://towardsdatascience.com/understanding-contrastive-learning-d5b19fd96607
+- Word2Vec: http://jalammar.github.io/illustrated-word2vec/
