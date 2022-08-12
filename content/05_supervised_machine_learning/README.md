@@ -34,8 +34,8 @@ To get your environment set up, make sure you have Conda installed and on your p
 
 - *Lecture Notebooks -*<br>
 
-  Day 1 (Regression & Classification basics) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_1_Lecture%20Notes.ipynb <br>
-  Day 2 (Ensemble Models  & Hyperparameter tuning) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_2_Lecture%20Notes.ipynb  
+  Day 1 (Regression & Classification basics) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_1_Lecture%20Notes%20PART1%20%26%20PART2.ipynb <br>
+  Day 2 (Ensemble Models  & Hyperparameter tuning) - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/Day_2_Lecture%20Notes%20PART1%20%26%20PART2.ipynb
 
 - *Datasets:* <br>
 
@@ -51,4 +51,3 @@ To get your environment set up, make sure you have Conda installed and on your p
 
   Regression - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Regression_Day1_%26_Day2.ipynb <br>
   Classification - https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/05_supervised_machine_learning/LAB_Classification_Day1%20%26%20Day2.ipynb
-
