@@ -141,7 +141,7 @@ The Azure Command-Line Interface (CLI) is a cross-platform command-line tool to 
 
 #### 1.2.5.2 Install Azure CLI Azure ML Extension
 
-- Run ```az extension add -n azure-cli ml``` to install the Azure CLI Azure ML Extension.
+- Run ```az extension add -n azure-cli-ml``` to install the Azure CLI Azure ML Extension.
 
 ### 1.2.6 Terraform
 
