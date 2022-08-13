@@ -135,50 +135,67 @@ The Azure Command-Line Interface (CLI) is a cross-platform command-line tool to 
 
 #### 1.2.5.1 Install Azure CLI
 
-**Documentation & Instructions**: https://docs.microsoft.com/de-de/cli/azure/install-azure-cli
+**Documentation & Instructions**: [https://docs.microsoft.com/de-de/cli/azure/install-azure-cli](https://docs.microsoft.com/de-de/cli/azure/install-azure-cli)
 
-Run ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash``` to install the Azure CLI.
+- Run ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash``` to install the Azure CLI.
 
 #### 1.2.5.2 Install Azure CLI Azure ML Extension
 
-Run ```az extension add -n azure-cli ml``` to install the Azure CLI Azure ML Extension.
+- Run ```az extension add -n azure-cli ml``` to install the Azure CLI Azure ML Extension.
 
-### 1.2.6 Visual Studio Code (VSCode)
+### 1.2.6 Terraform
+
+Terraform is an open-source infrastructure as code software tool that enables you to safely and predictably create, change, and improve infrastructure.
+
+**Documentation**: [https://www.terraform.io/](https://www.terraform.io/)
+
+#### 1.2.6.1 Install Terraform
+
+**Documentation & Instructions**: [https://learn.hashicorp.com/tutorials/terraform/install-cli](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+- Run ```sudo apt-get update && sudo apt-get install -y gnupg software-properties-common``` to ensure that your system is up to date, and you have the gnupg, software-properties-common, and curl packages installed. You will use these packages to verify HashiCorp's GPG signature, and install HashiCorp's Debian package repository.
+- Run ```wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg``` to install the HashiCorp GPG key.
+- Run ```gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint``` to verify the key's fingerprint.
+- Run ```echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list``` to add the official HashiCorp repository to your system.
+- Run ```sudo apt update``` to download the package information from HashiCorp.
+- Run ```sudo apt-get install terraform``` to install Terraform from the new repository.
+
+### 1.2.7 Visual Studio Code (VSCode)
 
 Visual Studio Code, commonly referred to as VSCode, is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with support for many languages including Python and has a rich ecosystem of useful extensions, e.g. for working with Git and Azure including a source control tab that will show your changes and handle a variety of git commands for you.. With VSCode we can take advantage of features like Intellisense code completion, linting, debug support, code snippets, and unit testing. Learn more about VS Code's Git support here:
 https://code.visualstudio.com/docs/editor/versioncontrol#_git-support
 
 **Documentation**: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-#### 1.2.6.1 Install VSCode
+#### 1.2.7.1 Install VSCode
 
 **Documentation & Instructions**: [https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
 
 - Visit the [VS Code install page](https://code.visualstudio.com/download) and download the installer for Windows. Then install Visual Studio Code on Windows (not in your WSL file system).
 - When prompted to Select Additional Tasks during installation, be sure to check the Add to PATH option so you can easily open a folder in WSL using the code command.
 
-#### 1.2.6.2 Install VSCode Remote Development Extension
+#### 1.2.7.2 Install VSCode Remote Development Extension
 
 - Install the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). This extension pack includes the Remote - WSL extension, in addition to the Remote - SSH, and Remote - Containers extensions, enabling you to open any folder in a container, on a remote machine, or in WSL.
 
-#### 1.2.6.3 Open a WSL project in Visual Studio Code
+#### 1.2.7.3 Open a WSL project in Visual Studio Code
 
 - Open your Linux distribution's command line via Windows Terminal and type ```code .``` (**Note:** it might take some time to install the VS Code Server if you run the command for the first time).
 - You can also access more VS Code Remote options by using the shortcut: CTRL+SHIFT+P in VS Code to bring up the command palette. If you then type Remote-WSL you will see a list of the VS Code Remote options available, allowing you to reopen the folder in a remote session, specify which distribution you want to open in, and more.
 
-#### 1.2.6.4 Extensions inside of VS Code Remote
+#### 1.2.7.4 Extensions inside of VS Code Remote
 
 - The Remote-WSL extension splits VS Code into a “client-server” architecture, with the client (the user interface) running on your Windows machine and the server (your code, Git, plugins, etc) running remotely in WSL.
 - When running VS Code Remote, extensions can therefore be installed either on your local machine or in your WSL distribution (remote). Selecting the 'Extensions' tab will display a list of extensions split between your local machine and your WSL distribution. Extensions for the client (the user interface), like themes, are installed once on your local machine. Installing server extensions on the remote, like the Python extension, or anything that handles things like linting or debugging, must be done separately in your WSL distribution (once in each one if you have multiple). VS Code will display a warning icon ⚠, along with a green "Install in WSL" button, if you have an extension locally installed that is not installed in your WSL.
 - Now install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) in your WSL distribution.
 
-### 1.2.7 JupyterLab
+### 1.2.8 JupyterLab
 
 JupyterLab is the latest open-source web-based interactive development environment for notebooks, code, and data. As such, it is one of the most popular tools for Data Scientists. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.
 
 **Documentation**: [https://jupyterlab.readthedocs.io/en/stable/](https://jupyterlab.readthedocs.io/en/stable/)
 
-#### 1.2.7.1 Run JupyterLab 
+#### 1.2.8.1 Run JupyterLab 
 
 - Activate the datascience-bootcamp conda environment by opening your Linux distribution's command line via Windows Terminal and typing ```conda activate datascience-bootcamp```.
 - Then type ```jupyter lab --no-browser``` to launch JupyterLab. Copy the URL, open the browser of your choice on your local workstation (e.g. Google Chrome), and paste the URL into the address bar. (**Note**: don't close the terminal as we have started an interactive JupyterLab session, which will be terminated once you close your terminal. You can stop the interactive session by pressing "CTRL + C".)
