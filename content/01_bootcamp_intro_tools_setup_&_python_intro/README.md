@@ -162,7 +162,13 @@ Terraform is an open-source infrastructure as code software tool that enables yo
 
 ### 1.2.7 Docker
 
+Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
+
+**Documentation**: [https://docs.docker.com/](https://docs.docker.com/)
+
 #### 1.2.7.1 Install Docker
+
+**Documentation & Instructions**: [https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d)
 
 - Run ```sudo apt update``` to updated the local repository.
 - Run ```sudo apt install docker.io -y``` to install Docker.
@@ -185,10 +191,6 @@ Terraform is an open-source infrastructure as code software tool that enables yo
             ```
     - Add your username to docker group so you can run docker as a non-root user by running ```sudo usermod -aG docker <USERNAME>```. Again, replace `<USERNAME>` with your username.
 - Validate the Docker installation by running ```docker run hello-world```.
-
-
-
-**Documentation & Instructions**: [https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d](https://medium.com/geekculture/run-docker-in-windows-10-11-wsl-without-docker-desktop-a2a7eb90556d)
 
 ### 1.2.8 Visual Studio Code (VSCode)
 
