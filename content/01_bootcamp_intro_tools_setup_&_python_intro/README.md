@@ -168,19 +168,22 @@ Terraform is an open-source infrastructure as code software tool that enables yo
 - Run ```sudo apt install docker.io -y``` to install Docker.
 - Run ```docker --version``` to check the Docker installation.
 - Enable automatic start of Docker Daemon on WSL:
-    - Modify /etc/sudousers file, which controls how sudo command are executed. We need to make the following modifications to start dockerd without being prompted for a password every time you start a terminal window. Run ```sudo visudo``` and add the following line to the bottom of the file: 
+    - Modify /etc/sudousers file, which controls how sudo command are executed. We need to make the following modifications to start dockerd without being prompted for a password every time you start a terminal window. Run ```sudo visudo``` and add the following to the bottom of the file: 
         - ```
           # Docker daemon specification
           <USERNAME> ALL=(ALL) NOPASSWD: /usr/bin/dockerd
           ``` 
-          (Please replace <USERNAME> with your username).
-    - Open the .bashrc file by running ```nano ~/.bashrc```. Then add the following to the bottom of the file: ```# Start Docker daemon automatically when logging in if not running.
-RUNNING=`ps aux | grep dockerd | grep -v grep`
-if [ -z "$RUNNING" ]; then
-    sudo dockerd > /dev/null 2>&1 &
-    disown
-fi```.
-    - Add your username to docker group so you can run docker as a non-root user by running ```sudo usermod -aG docker <USERNAME>```. Again, replace <USERNAME> with your username.
+          (Please replace `<USERNAME>` with your username).
+    - Open the .bashrc file by running ```nano ~/.bashrc```. Then add the following to the bottom of the file:
+         -  ```
+            # Start Docker daemon automatically when logging in if not running.
+            RUNNING=`ps aux | grep dockerd | grep -v grep`
+            if [ -z "$RUNNING" ]; then
+            sudo dockerd > /dev/null 2>&1 &
+            disown
+            fi
+            ```
+    - Add your username to docker group so you can run docker as a non-root user by running ```sudo usermod -aG docker <USERNAME>```. Again, replace `<USERNAME>` with your username.
 - Validate the Docker installation by running ```docker run hello-world```.
 
 
