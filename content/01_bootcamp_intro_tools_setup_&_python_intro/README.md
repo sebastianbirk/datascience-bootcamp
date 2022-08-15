@@ -185,8 +185,8 @@ Docker is a software platform that allows you to build, test, and deploy applica
             # Start Docker daemon automatically when logging in if not running.
             RUNNING=`ps aux | grep dockerd | grep -v grep`
             if [ -z "$RUNNING" ]; then
-            sudo dockerd > /dev/null 2>&1 &
-            disown
+                sudo dockerd > /dev/null 2>&1 &
+                disown
             fi
             ```
     - Add your username to docker group so you can run docker as a non-root user by running ```sudo usermod -aG docker <USERNAME>```. Again, replace `<USERNAME>` with your username.
