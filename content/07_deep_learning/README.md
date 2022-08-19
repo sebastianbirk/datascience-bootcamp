@@ -20,17 +20,17 @@ Good introductory resources for deep learning are:
 
 ### 7.2.2 PyTorch
 
-The PyTorch lab notebook is available [here]().
+The PyTorch lab notebook is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/07_deep_learning/7.1_pytorch.ipynb).
 
-To learn more about PyTorch, check out this [online course](https://www.youtube.com/watch?v=c36lUUr864M&t=8387s) or the official [PyTorch Tutorials](https://pytorch.org/tutorials/)
+To learn more about PyTorch, check out this [online course](https://www.youtube.com/watch?v=c36lUUr864M&t=8387s) or the official [PyTorch Tutorials](https://pytorch.org/tutorials/).
 
 ### 7.2.3 Hugging Face Transformers
 
-The Hugging Face Transformers lab notebook is available [here]()
+The Hugging Face Transformers lab notebook is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/07_deep_learning/7.2_hugging_face_transformers.ipynb).
 
 To learn more about the Hugging Face ecosystem, check this [Hugging Face course](https://huggingface.co/course/chapter1/1).
 
 
 ## 7.3 Summary Remark
 
-Congratulations you have now taken your first steps into deep learning, which is the foundation for state-of-the-art AI solution nowadays.
+Congratulations. You have now taken your first steps into deep learning, which is the foundation for state-of-the-art AI solution nowadays.
