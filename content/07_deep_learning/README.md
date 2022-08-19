@@ -26,11 +26,11 @@ To learn more about PyTorch, check out this [online course](https://www.youtube.
 
 ### 7.2.3 Hugging Face Transformers
 
-The Hugging Face Transformers lab notebook is available [here]()
+The Hugging Face Transformers lab notebook is available [here]().
 
 To learn more about the Hugging Face ecosystem, check this [Hugging Face course](https://huggingface.co/course/chapter1/1).
 
 
 ## 7.3 Summary Remark
 
-Congratulations you have now taken your first steps into deep learning, which is the foundation for state-of-the-art AI solution nowadays.
+Congratulations. You have now taken your first steps into deep learning, which is the foundation for state-of-the-art AI solution nowadays.
