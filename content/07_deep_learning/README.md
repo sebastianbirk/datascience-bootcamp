@@ -20,7 +20,7 @@ Good introductory resources for deep learning are:
 
 ### 7.2.2 PyTorch
 
-The PyTorch lab notebook is available [here]().
+The PyTorch lab notebook is available [here](https://github.com/sebastianbirk/datascience-bootcamp/blob/main/content/07_deep_learning/7.1_pytorch.ipynb).
 
 To learn more about PyTorch, check out this [online course](https://www.youtube.com/watch?v=c36lUUr864M&t=8387s) or the official [PyTorch Tutorials](https://pytorch.org/tutorials/)
 
