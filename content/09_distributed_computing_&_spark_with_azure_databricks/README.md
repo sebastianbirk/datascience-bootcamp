@@ -8,7 +8,9 @@ Another good resource especially for new features are the recent Data + AI summi
 
 ## 9.2 Distributed Computing & Spark with Azure Databricks Lab
 
-We will create a Databricks workspace in our Azure subscription and clone this repository to Databricks Repos. Then we will go through the notebooks 'Intro to DF Part 1', 'Intro to DF Part 2' and 'ML 04 - MLflow'.
+- We will create a Databricks workspace in our Azure subscription and clone this repository to Databricks Repos.
+- Next, we will create a cluster with 11.1 ML Databricks runtime (no GPU).
+- We can now use that cluster to go through the notebooks 'Intro to DF Part 1', 'Intro to DF Part 2' and 'ML 04 - MLflow'.
 
 ## 9.3 Summary Remarks
 
